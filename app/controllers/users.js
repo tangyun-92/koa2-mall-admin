@@ -1,4 +1,4 @@
-const User = require('../models/user')
+const User = require('../models/users')
 
 class UserCtl {
   async find(ctx) {

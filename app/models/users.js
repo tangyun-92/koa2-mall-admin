@@ -28,7 +28,7 @@ const User = sequelize.define(
     },
   },
   {
-    tableName: 'user',
+    tableName: 'users',
     // timestamps: false,
     freezeTableName: true, // 是否不需要以s结尾
   }
