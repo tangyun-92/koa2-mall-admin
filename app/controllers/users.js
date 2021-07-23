@@ -1,9 +1,14 @@
 const User = require('../models/users')
 
 class UserCtl {
+  // 获取用户列表
   async find(ctx) {
-    console.log(ctx)
-    ctx.body = await User.findAll()
+    ctx.body = await User.findAll({
+      where: {
+        is_deleted: 0
+      },
+      attributes: { exclude: ['password'] },
+    })
   }
 }
 
