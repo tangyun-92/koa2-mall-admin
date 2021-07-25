@@ -1,3 +1,10 @@
+/*
+ * @Author: 唐云 
+ * @Date: 2021-07-25 21:50:02 
+ * @Last Modified by: 唐云
+ * @Last Modified time: 2021-07-25 21:50:28
+ * sequelize数据库配置
+ */
 const Sequelize = require('sequelize')
 const { MYSQL_CONF } = require('../config/db')
 

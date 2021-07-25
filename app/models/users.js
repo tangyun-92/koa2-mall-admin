@@ -1,5 +1,13 @@
+/*
+ * @Author: 唐云 
+ * @Date: 2021-07-25 21:48:48 
+ * @Last Modified by:   唐云 
+ * @Last Modified time: 2021-07-25 21:48:48 
+ * 用户模型
+ */
 const { Sequelize, DataTypes } = require('sequelize')
 const sequelize = require('./db')
+const Role = require('./roles')
 
 const User = sequelize.define(
   'Users',
@@ -18,20 +26,39 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    createdAt: {
-      type: DataTypes.DATE,
+    emp_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
     },
-    updatedAt: {
-      type: DataTypes.DATE,
+    role_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
+    },
+    status: {
+      type: DataTypes.TINYINT.UNSIGNED,
+      allowNull: false,
+    },
+    create_time: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    last_update_time: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    is_deleted: {
+      type: DataTypes.TINYINT.UNSIGNED,
+      allowNull: true,
+      default: 0
     },
   },
   {
-    tableName: 'users',
-    // timestamps: false,
+    tableName: 't_user',
+    timestamps: false,
     freezeTableName: true, // 是否不需要以s结尾
   }
 )
+
+User.belongsTo(Role, { foreignKey: 'role_id', as: 'r' }) // 如果对应 Role 关联的是主键则不用写 targetKey，否则需要 targetKey: id
 
 module.exports = User

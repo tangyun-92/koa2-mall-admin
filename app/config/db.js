@@ -1,3 +1,9 @@
+/*
+ * @Author: 唐云 
+ * @Date: 2021-07-25 21:50:33 
+ * @Last Modified by:   唐云 
+ * @Last Modified time: 2021-07-25 21:50:33 
+ */
 let MYSQL_CONF
 
 MYSQL_CONF = {
@@ -6,7 +12,7 @@ MYSQL_CONF = {
   user: 'root',
   password: '123456',
   port: '3306',
-  database: 'ball',
+  database: 'new-retail',
 }
 
 module.exports = {
