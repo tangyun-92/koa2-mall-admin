@@ -2,7 +2,7 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:48:32 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-25 21:52:43
+ * @Last Modified time: 2021-07-25 22:11:39
  * 用户
  */
 const User = require('../models/users')
@@ -46,6 +46,7 @@ class UserCtl {
     const { count, rows } = await User.findAndCountAll({
       offset: (page - 1) * pageSize,
       limit: pageSize,
+      order: ['id'],
       where: {
         is_deleted: 0, // 0 表示未被删除的数据
       },
