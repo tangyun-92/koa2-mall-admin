@@ -1,8 +1,8 @@
 /*
  * @Author: 唐云 
  * @Date: 2021-07-25 21:48:48 
- * @Last Modified by:   唐云 
- * @Last Modified time: 2021-07-25 21:48:48 
+ * @Last Modified by: 唐云
+ * @Last Modified time: 2021-07-25 21:52:50
  * 用户模型
  */
 const { Sequelize, DataTypes } = require('sequelize')
