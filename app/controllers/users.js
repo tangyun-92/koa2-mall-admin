@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-26 16:06:12
+ * @Last Modified time: 2021-07-26 22:52:51
  * 用户
  */
 const User = require('../models/users')
@@ -36,14 +36,19 @@ class UserCtl {
       secret,
       { expiresIn: '1d' }
     )
-    ctx.body = { data: { token, username }, status: 200, message: '登录成功', result: true }
+    ctx.body = {
+      data: { token, username },
+      status: 200,
+      message: '登录成功',
+      result: true,
+    }
   }
 
   // 获取用户列表
   async find(ctx) {
     let { page = 1, pageSize = 5 } = ctx.query
     pageSize = Math.max(pageSize, 1)
-    page = Math.max(page, 1) 
+    page = Math.max(page, 1)
     const { count, rows } = await User.findAndCountAll({
       offset: (page - 1) * pageSize,
       limit: pageSize,
@@ -66,8 +71,8 @@ class UserCtl {
         records: rows,
         page,
         pageSize,
-        total: count
-      }
+        total: count,
+      },
     })
   }
 
@@ -102,13 +107,9 @@ class UserCtl {
     if (!repeatedUser) {
       ctx.throw(404, '用户不存在')
     }
-    const user = await User.update(
-      {
-        ...ctx.request.body,
-        last_update_time: Date.now(), // 最后一次更新时间
-      },
-      { where: { id: ctx.params.id } }
-    )
+    const user = await User.update(ctx.request.body, {
+      where: { id: ctx.params.id },
+    })
     ctx.body = returnCtxBody({})
   }
 

@@ -2,7 +2,7 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:48:48 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-25 21:52:50
+ * @Last Modified time: 2021-07-26 22:50:59
  * 用户模型
  */
 const { Sequelize, DataTypes } = require('sequelize')
@@ -38,11 +38,11 @@ const User = sequelize.define(
       type: DataTypes.TINYINT.UNSIGNED,
       allowNull: false,
     },
-    create_time: {
+    createdAt: {
       type: DataTypes.DATE,
       allowNull: true,
     },
-    last_update_time: {
+    updatedAt: {
       type: DataTypes.DATE,
       allowNull: true,
     },
@@ -54,7 +54,7 @@ const User = sequelize.define(
   },
   {
     tableName: 't_user',
-    timestamps: false,
+    // timestamps: false,
     freezeTableName: true, // 是否不需要以s结尾
   }
 )
