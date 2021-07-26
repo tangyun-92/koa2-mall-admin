@@ -1,7 +1,5 @@
 const Koa = require('koa')
 const app = new Koa()
-// const json = require('koa-json')
-// const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const routing = require('./routes')
 const cors = require('koa2-cors')
@@ -21,7 +19,7 @@ app.use(koaStatic(path.join(__dirname, 'public')))
 app.use(
   error({
     postFormat: (err, { stack, ...rest }) =>
-      process.env.NODE_ENV === 'production' ? rest : { stack, ...rest },
+      process.env.NODE_ENV === 'production' ? rest : { stack, ...rest, result: false },
   })
 )
 
@@ -35,12 +33,6 @@ app.use(
   })
 )
 
-// app.use(
-//   bodyparser({
-//     enableTypes: ['json', 'form', 'text'],
-//   })
-// )
-// app.use(json())
 app.use(logger())
 
 // logger

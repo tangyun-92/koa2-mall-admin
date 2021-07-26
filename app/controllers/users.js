@@ -1,8 +1,8 @@
 /*
- * @Author: 唐云 
- * @Date: 2021-07-25 21:48:32 
+ * @Author: 唐云
+ * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-25 22:11:39
+ * @Last Modified time: 2021-07-26 16:06:12
  * 用户
  */
 const User = require('../models/users')
@@ -36,13 +36,14 @@ class UserCtl {
       secret,
       { expiresIn: '1d' }
     )
-    ctx.body = { data: { token, username }, status: 200, message: '登录成功' }
+    ctx.body = { data: { token, username }, status: 200, message: '登录成功', result: true }
   }
 
   // 获取用户列表
   async find(ctx) {
-    const page = Math.max(ctx.query.page, 1)
-    const pageSize = Math.max(ctx.query.pageSize, 1)
+    let { page = 1, pageSize = 5 } = ctx.query
+    pageSize = Math.max(pageSize, 1)
+    page = Math.max(page, 1) 
     const { count, rows } = await User.findAndCountAll({
       offset: (page - 1) * pageSize,
       limit: pageSize,
@@ -61,8 +62,12 @@ class UserCtl {
       },
     })
     ctx.body = returnCtxBody({
-      data: rows,
-      total: count,
+      data: {
+        records: rows,
+        page,
+        pageSize,
+        total: count
+      }
     })
   }
 

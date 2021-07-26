@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-25 22:12:20
+ * @Last Modified time: 2021-07-26 16:03:18
  * 角色
  */
 const Role = require('../models/roles')
@@ -12,16 +12,21 @@ const { returnCtxBody } = require('../utils/index')
 class RoleCtl {
   // 获取角色列表
   async find(ctx) {
-    const page = Math.max(ctx.query.page, 1)
-    const pageSize = Math.max(ctx.query.pageSize, 1)
+    let { page = 1, pageSize = 5 } = ctx.query
+    page = Math.max(page, 1)
+    pageSize = Math.max(pageSize, 1)
     const { count, rows } = await Role.findAndCountAll({
       offset: (page - 1) * pageSize,
       limit: pageSize,
       order: ['id']
     })
     ctx.body = returnCtxBody({
-      data: rows,
-      total: count,
+      data: {
+        records: rows,
+        page,
+        pageSize,
+        total: count,
+      },
     })
   }
 
