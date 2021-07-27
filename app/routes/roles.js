@@ -2,7 +2,7 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:48:41 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-25 22:01:21
+ * @Last Modified time: 2021-07-27 17:01:47
  * 用户路由
  */
 const Router = require('koa-router')
@@ -18,9 +18,9 @@ const { secret } = require('../config/jwt')
  */
 const auth = jwt({ secret }) // 生成的用户信息在ctx.state上
 
-router.get('/', auth, find)
-router.post('/', auth, create)
-router.patch('/:id', auth, update)
-router.delete('/:id', auth, del)
+router.post('/', auth, find)
+router.post('/create', auth, create)
+router.post('/update', auth, update)
+router.post('/delete', auth, del)
 
 module.exports = router

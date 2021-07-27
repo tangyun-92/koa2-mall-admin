@@ -2,13 +2,14 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-27 10:22:49
+ * @Last Modified time: 2021-07-27 17:17:04
  * 用户
  */
 const User = require('../models/users')
 const Role = require('../models/roles')
 const jsonwebtoken = require('jsonwebtoken')
 const sequelize = require('sequelize')
+const { Op } = require('sequelize')
 const { secret } = require('../config/jwt')
 const { returnCtxBody } = require('../utils/index')
 
@@ -46,7 +47,12 @@ class UserCtl {
 
   // 获取用户列表
   async find(ctx) {
-    let { page = 1, pageSize = 5 } = ctx.query
+    let {
+      page = 1,
+      pageSize = 5,
+      username = '',
+      status = '',
+    } = ctx.request.body
     pageSize = Math.max(pageSize, 1)
     page = Math.max(page, 1)
     const { count, rows } = await User.findAndCountAll({
@@ -55,6 +61,13 @@ class UserCtl {
       order: ['id'],
       where: {
         is_deleted: 0, // 0 表示未被删除的数据
+        username: {
+          [Op.or]: {
+            [Op.like]: `%${username}%`,
+            [Op.eq]: username ? username : false,
+          },
+        },
+        status: status === 0 ? status : 1 // 默认选中启用状态的数据
       },
       attributes: {
         include: [[sequelize.col('r.role'), 'role']],
@@ -103,38 +116,44 @@ class UserCtl {
       role_id: { type: 'number', require: false },
       status: { type: 'number', require: false },
     })
-    const repeatedUser = await User.findByPk(ctx.params.id)
-    if (!repeatedUser) {
+    const { id, username } = ctx.request.body
+    const repeatedId = await User.findByPk(id)
+    const repeatedUser = await User.findOne({ where: { username }})
+    if (!repeatedId) {
       ctx.throw(404, '用户不存在')
     }
+    if (repeatedUser.dataValues.id !== id) {
+      ctx.throw(409, '用户名已存在')
+    }
     const user = await User.update(ctx.request.body, {
-      where: { id: ctx.params.id },
+      where: { id },
     })
     ctx.body = returnCtxBody({})
   }
 
   // 删除用户
   async delete(ctx) {
-    const repeatedUser = await User.findByPk(ctx.params.id)
+    const { id } = ctx.request.body
+    const repeatedUser = await User.findByPk(id)
     if (!repeatedUser) {
       ctx.throw(404, '用户不存在')
     }
-    await User.update({ is_deleted: 1 }, { where: { id: ctx.params.id } })
+    await User.update({ is_deleted: 1 }, { where: { id } })
     ctx.body = returnCtxBody({})
   }
 
   // 启用/禁用用户状态
   async changeStatus(ctx) {
-    const repeatedUser = await User.findByPk(ctx.params.id)
+    const { id } = ctx.request.body
+    const repeatedUser = await User.findByPk(id)
     if (!repeatedUser) {
       ctx.throw(404, '用户不存在')
     }
     const { status } = ctx.request.body
-    console.log(status)
     if (status !== 0 && status !== 1) {
       ctx.throw(400, 'status只能为0或者1')
     }
-    await User.update({ status }, { where: { id: ctx.params.id } })
+    await User.update({ status }, { where: { id } })
     ctx.body = returnCtxBody({})
   }
 }
