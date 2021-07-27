@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-26 22:52:51
+ * @Last Modified time: 2021-07-27 10:22:49
  * 用户
  */
 const User = require('../models/users')
@@ -120,6 +120,21 @@ class UserCtl {
       ctx.throw(404, '用户不存在')
     }
     await User.update({ is_deleted: 1 }, { where: { id: ctx.params.id } })
+    ctx.body = returnCtxBody({})
+  }
+
+  // 启用/禁用用户状态
+  async changeStatus(ctx) {
+    const repeatedUser = await User.findByPk(ctx.params.id)
+    if (!repeatedUser) {
+      ctx.throw(404, '用户不存在')
+    }
+    const { status } = ctx.request.body
+    console.log(status)
+    if (status !== 0 && status !== 1) {
+      ctx.throw(400, 'status只能为0或者1')
+    }
+    await User.update({ status }, { where: { id: ctx.params.id } })
     ctx.body = returnCtxBody({})
   }
 }
