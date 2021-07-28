@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-28 15:00:30
+ * @Last Modified time: 2021-07-28 15:52:48
  * 用户
  */
 const User = require('../models/users')
@@ -156,16 +156,21 @@ class UserCtl {
 
   // 启用/禁用用户状态
   async changeStatus(ctx) {
-    const { id } = ctx.request.body
-    const repeatedUser = await User.findByPk(id)
-    if (!repeatedUser) {
-      ctx.throw(200, '用户不存在')
-    }
-    const { status } = ctx.request.body
+    const { id, status } = ctx.request.body
+    console.log(id)
     if (status !== 0 && status !== 1) {
       ctx.throw(200, 'status只能为0或者1')
     }
-    await User.update({ status }, { where: { id } })
+    await User.update(
+      { status },
+      {
+        where: {
+          id: {
+            [Op.or]: id,
+          },
+        },
+      }
+    )
     ctx.body = returnCtxBody({})
   }
 }
