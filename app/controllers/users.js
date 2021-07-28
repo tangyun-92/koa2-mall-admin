@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-28 16:01:17
+ * @Last Modified time: 2021-07-28 16:50:44
  * 用户
  */
 const User = require('../models/users')
@@ -162,7 +162,6 @@ class UserCtl {
   // 启用/禁用用户状态
   async changeStatus(ctx) {
     const { id, status } = ctx.request.body
-    console.log(id)
     if (status !== 0 && status !== 1) {
       ctx.throw(200, 'status只能为0或者1')
     }
@@ -176,6 +175,16 @@ class UserCtl {
         },
       }
     )
+    ctx.body = returnCtxBody({})
+  }
+
+  // 修改密码
+  async updatePassword(ctx) {
+    ctx.verifyParams({
+      password: { type: 'string', require: true },
+    })
+    const { id } = ctx.request.body
+    await User.update(ctx.request.body, { where: { id } })
     ctx.body = returnCtxBody({})
   }
 }

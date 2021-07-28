@@ -2,14 +2,21 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:48:41 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-28 13:35:18
+ * @Last Modified time: 2021-07-28 16:30:53
  * 用户路由
  */
 const Router = require('koa-router')
 const router = new Router({ prefix: '/users' })
 const jwt = require('koa-jwt')
 
-const { find, login, update, delete: del, changeStatus } = require('../controllers/users')
+const {
+  find,
+  login,
+  update,
+  delete: del,
+  changeStatus,
+  updatePassword,
+} = require('../controllers/users')
 
 const { secret } = require('../config/jwt')
 
@@ -23,5 +30,6 @@ router.post('/login', login)
 router.post('/update', auth, update)
 router.post('/delete', auth, del)
 router.post('/status', auth, changeStatus)
+router.post('/password', auth, updatePassword)
 
 module.exports = router

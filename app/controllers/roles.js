@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-28 15:03:20
+ * @Last Modified time: 2021-07-28 16:07:16
  * 角色
  */
 const Role = require('../models/roles')
@@ -41,12 +41,12 @@ class RoleCtl {
 
   /**
    * 获取所有角色的Map
-   * @param {*} ctx 
+   * @param {*} ctx
    */
   async findMap(ctx) {
     const roles = await Role.findAll()
     const obj = {}
-    roles.forEach(item => {
+    roles.forEach((item) => {
       let key = item.id
       obj[key] = item.role
     })
@@ -85,12 +85,13 @@ class RoleCtl {
 
   // 删除角色
   async delete(ctx) {
-    const { id } = ctx.request.body
-    const repeatedRole = await Role.findByPk(id)
-    if (!repeatedRole) {
-      ctx.throw(200, '角色不存在')
-    }
-    await Role.destroy({ where: { id } })
+    await Role.destroy({
+      where: {
+        id: {
+          [Op.or]: id,
+        },
+      },
+    })
     ctx.body = returnCtxBody({})
   }
 }
