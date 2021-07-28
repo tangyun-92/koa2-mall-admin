@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-28 16:07:16
+ * @Last Modified time: 2021-07-28 17:09:53
  * 角色
  */
 const Role = require('../models/roles')
@@ -85,6 +85,7 @@ class RoleCtl {
 
   // 删除角色
   async delete(ctx) {
+    const { id } = ctx.request.body
     await Role.destroy({
       where: {
         id: {
