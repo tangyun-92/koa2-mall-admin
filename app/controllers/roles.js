@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-27 17:19:59
+ * @Last Modified time: 2021-07-28 15:03:20
  * 角色
  */
 const Role = require('../models/roles')
@@ -39,35 +39,47 @@ class RoleCtl {
     })
   }
 
-  // 新增角色
-  async create(ctx) {
-    ctx.verifyParams({
-      role: { type: 'string', require: true },
+  /**
+   * 获取所有角色的Map
+   * @param {*} ctx 
+   */
+  async findMap(ctx) {
+    const roles = await Role.findAll()
+    const obj = {}
+    roles.forEach(item => {
+      let key = item.id
+      obj[key] = item.role
     })
-    const { role } = ctx.request.body
-    const repeatedRole = await Role.findOne({ where: { role } })
-    if (repeatedRole) {
-      ctx.throw(409, '角色已存在')
+    ctx.body = {
+      data: obj,
+      status: 200,
+      message: '获取成功',
+      result: true,
     }
-    await Role.create(ctx.request.body)
-    ctx.body = returnCtxBody({})
   }
 
-  // 更新角色
+  // 创建/更新角色
   async update(ctx) {
-    ctx.verifyParams({
-      role: { type: 'string', require: false },
-    })
     const { id, role } = ctx.request.body
-    const repeatedId = await Role.findByPk(id)
     const repeatedRole = await Role.findOne({ where: { role } })
-    if (!repeatedId) {
-      ctx.throw(404, '角色不存在')
+    if (repeatedRole && repeatedRole.dataValues.id !== id) {
+      ctx.throw(200, '角色名已存在')
     }
-    if (repeatedRole.dataValues.id !== id) {
-      ctx.throw(409, '角色名已存在')
+    if (id) {
+      ctx.verifyParams({
+        role: { type: 'string', require: false },
+      })
+      const repeatedId = await Role.findByPk(id)
+      if (!repeatedId) {
+        ctx.throw(200, '角色不存在')
+      }
+      await Role.update(ctx.request.body, { where: { id } })
+    } else {
+      ctx.verifyParams({
+        role: { type: 'string', require: true },
+      })
+      await Role.create(ctx.request.body)
     }
-    await Role.update(ctx.request.body, { where: { id } })
     ctx.body = returnCtxBody({})
   }
 
@@ -76,7 +88,7 @@ class RoleCtl {
     const { id } = ctx.request.body
     const repeatedRole = await Role.findByPk(id)
     if (!repeatedRole) {
-      ctx.throw(404, '角色不存在')
+      ctx.throw(200, '角色不存在')
     }
     await Role.destroy({ where: { id } })
     ctx.body = returnCtxBody({})

@@ -2,11 +2,12 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-27 17:17:04
+ * @Last Modified time: 2021-07-28 15:00:30
  * 用户
  */
 const User = require('../models/users')
 const Role = require('../models/roles')
+const Employee = require('../models/employees')
 const jsonwebtoken = require('jsonwebtoken')
 const sequelize = require('sequelize')
 const { Op } = require('sequelize')
@@ -23,13 +24,13 @@ class UserCtl {
     const { username, password } = ctx.request.body
     const user = await User.findOne({ where: { username } })
     if (!user) {
-      ctx.throw(404, '用户不存在')
+      ctx.throw(200, '用户不存在')
     }
     if (user.status === 0) {
-      ctx.throw(400, '用户已被禁用')
+      ctx.throw(200, '用户已被禁用')
     }
     if (username !== user.username || password !== user.password) {
-      ctx.throw(400, '账号或密码错误')
+      ctx.throw(200, '账号或密码错误')
     }
     // 生成token
     const token = jsonwebtoken.sign(
@@ -55,6 +56,12 @@ class UserCtl {
     } = ctx.request.body
     pageSize = Math.max(pageSize, 1)
     page = Math.max(page, 1)
+    // 如果status为空，默认选中启用与停用的数据
+    if (status === '') {
+      status = [{ status: 0 }, { status: 1 }]
+    } else {
+      status = [{ status }]
+    }
     const { count, rows } = await User.findAndCountAll({
       offset: (page - 1) * pageSize,
       limit: pageSize,
@@ -67,17 +74,27 @@ class UserCtl {
             [Op.eq]: username ? username : false,
           },
         },
-        status: status === 0 ? status : 1 // 默认选中启用状态的数据
+        [Op.or]: status,
       },
       attributes: {
-        include: [[sequelize.col('r.role'), 'role']],
-        exclude: ['password', 'role_id'],
+        include: [
+          [sequelize.col('rol.role'), 'role'],
+          [sequelize.col('emp.ename'), 'employee'],
+        ],
+        exclude: ['password'],
       }, // 显示过滤的字段
-      include: {
-        model: Role,
-        as: 'r',
-        attributes: [],
-      },
+      include: [
+        {
+          model: Role,
+          as: 'rol',
+          attributes: [],
+        },
+        {
+          model: Employee,
+          as: 'emp',
+          attributes: [],
+        },
+      ],
     })
     ctx.body = returnCtxBody({
       data: {
@@ -89,45 +106,40 @@ class UserCtl {
     })
   }
 
-  // 新增用户
-  async create(ctx) {
-    ctx.verifyParams({
-      username: { type: 'string', require: true },
-      password: { type: 'string', require: true },
-      emp_id: { type: 'number', require: true },
-      role_id: { type: 'number', require: true },
-      status: { type: 'number', require: true },
-    })
-    const { username } = ctx.request.body
-    const repeatedUser = await User.findOne({ where: { username } })
-    if (repeatedUser) {
-      ctx.throw(409, '用户已存在')
-    }
-    const user = await User.create(ctx.request.body)
-    ctx.body = returnCtxBody({})
-  }
-
-  // 更新用户
+  // 创建/更新用户
   async update(ctx) {
-    ctx.verifyParams({
-      username: { type: 'string', require: false },
-      password: { type: 'string', require: false },
-      emp_id: { type: 'number', require: false },
-      role_id: { type: 'number', require: false },
-      status: { type: 'number', require: false },
-    })
     const { id, username } = ctx.request.body
-    const repeatedId = await User.findByPk(id)
-    const repeatedUser = await User.findOne({ where: { username }})
-    if (!repeatedId) {
-      ctx.throw(404, '用户不存在')
+    const repeatedUser = await User.findOne({ where: { username } })
+    if (repeatedUser && repeatedUser.dataValues.id !== id) {
+      ctx.throw(200, '用户名已存在')
     }
-    if (repeatedUser.dataValues.id !== id) {
-      ctx.throw(409, '用户名已存在')
+    // 如果 id 存在执行更新操作，不存在执行新增操作
+    if (id) {
+      ctx.verifyParams({
+        username: { type: 'string', require: false },
+        emp_id: { type: 'number', require: false },
+        role_id: { type: 'number', require: false },
+        status: { type: 'number', require: false },
+      })
+      const repeatedId = await User.findByPk(id)
+      if (!repeatedId) {
+        ctx.throw(200, '用户不存在')
+      }
+      await User.update(ctx.request.body, {
+        where: { id },
+      })
+    } else {
+      ctx.verifyParams({
+        username: { type: 'string', require: true },
+        emp_id: { type: 'number', require: true },
+        role_id: { type: 'number', require: true },
+        status: { type: 'number', require: true },
+      })
+      await User.create({
+        ...ctx.request.body,
+        password: '4YS8pXDMcZNSqEymv0uxDg==', // 默认密码 123456
+      })
     }
-    const user = await User.update(ctx.request.body, {
-      where: { id },
-    })
     ctx.body = returnCtxBody({})
   }
 
@@ -136,7 +148,7 @@ class UserCtl {
     const { id } = ctx.request.body
     const repeatedUser = await User.findByPk(id)
     if (!repeatedUser) {
-      ctx.throw(404, '用户不存在')
+      ctx.throw(200, '用户不存在')
     }
     await User.update({ is_deleted: 1 }, { where: { id } })
     ctx.body = returnCtxBody({})
@@ -147,11 +159,11 @@ class UserCtl {
     const { id } = ctx.request.body
     const repeatedUser = await User.findByPk(id)
     if (!repeatedUser) {
-      ctx.throw(404, '用户不存在')
+      ctx.throw(200, '用户不存在')
     }
     const { status } = ctx.request.body
     if (status !== 0 && status !== 1) {
-      ctx.throw(400, 'status只能为0或者1')
+      ctx.throw(200, 'status只能为0或者1')
     }
     await User.update({ status }, { where: { id } })
     ctx.body = returnCtxBody({})
