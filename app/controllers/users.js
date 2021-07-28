@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-28 15:52:48
+ * @Last Modified time: 2021-07-28 16:01:17
  * 用户
  */
 const User = require('../models/users')
@@ -146,11 +146,16 @@ class UserCtl {
   // 删除用户
   async delete(ctx) {
     const { id } = ctx.request.body
-    const repeatedUser = await User.findByPk(id)
-    if (!repeatedUser) {
-      ctx.throw(200, '用户不存在')
-    }
-    await User.update({ is_deleted: 1 }, { where: { id } })
+    await User.update(
+      { is_deleted: 1 },
+      {
+        where: {
+          id: {
+            [Op.or]: id,
+          },
+        },
+      }
+    )
     ctx.body = returnCtxBody({})
   }
 
