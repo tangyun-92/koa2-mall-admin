@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-29 11:13:58
+ * @Last Modified time: 2021-07-29 16:48:10
  * 职位
  */
 const Job = require('../models/jobs')
@@ -22,10 +22,7 @@ class JobCtl {
       order: ['id'],
       where: {
         job: {
-          [Op.or]: {
-            [Op.like]: `%${job}%`,
-            [Op.eq]: job ? job : false,
-          },
+          [Op.like]: `${job}%`,
         },
       },
     })
