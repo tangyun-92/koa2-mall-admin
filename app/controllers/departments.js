@@ -2,8 +2,8 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-29 10:11:42
- * 角色
+ * @Last Modified time: 2021-07-29 11:03:59
+ * 部门
  */
 const Department = require('../models/departments')
 const sequelize = require('sequelize')
