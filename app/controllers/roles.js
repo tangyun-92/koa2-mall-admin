@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-28 17:09:53
+ * @Last Modified time: 2021-07-29 15:49:28
  * 角色
  */
 const Role = require('../models/roles')
@@ -22,10 +22,7 @@ class RoleCtl {
       order: ['id'],
       where: {
         role: {
-          [Op.or]: {
-            [Op.like]: `%${role}%`,
-            [Op.eq]: role ? role : false,
-          },
+          [Op.like]: `${role}%`,
         },
       },
     })

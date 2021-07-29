@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-28 16:50:44
+ * @Last Modified time: 2021-07-29 15:48:36
  * 用户
  */
 const User = require('../models/users')
@@ -56,12 +56,6 @@ class UserCtl {
     } = ctx.request.body
     pageSize = Math.max(pageSize, 1)
     page = Math.max(page, 1)
-    // 如果status为空，默认选中启用与停用的数据
-    if (status === '') {
-      status = [{ status: 0 }, { status: 1 }]
-    } else {
-      status = [{ status }]
-    }
     const { count, rows } = await User.findAndCountAll({
       offset: (page - 1) * pageSize,
       limit: pageSize,
@@ -69,12 +63,11 @@ class UserCtl {
       where: {
         is_deleted: 0, // 0 表示未被删除的数据
         username: {
-          [Op.or]: {
-            [Op.like]: `%${username}%`,
-            [Op.eq]: username ? username : false,
-          },
+          [Op.like]: `${username}%`,
         },
-        [Op.or]: status,
+        status: {
+          [Op.like]: `${status}%`,
+        },
       },
       attributes: {
         include: [
@@ -162,8 +155,8 @@ class UserCtl {
   // 启用/禁用用户状态
   async changeStatus(ctx) {
     const { id, status } = ctx.request.body
-    if (status !== 0 && status !== 1) {
-      ctx.throw(200, 'status只能为0或者1')
+    if (status !== 1 && status !== 2) {
+      ctx.throw(200, 'status只能为1或者2')
     }
     await User.update(
       { status },
