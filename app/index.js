@@ -27,7 +27,7 @@ app.use(
   koaBody({
     multipart: true, // 表示启用文件，可以上传文件
     formidable: {
-      uploadDir: path.join(__dirname, '/public/uploads'), // 上传目录
+      // uploadDir: path.join(__dirname, '/public/uploads'), // 上传目录
       keepExtensions: true, // 保留扩展名
     },
   })
