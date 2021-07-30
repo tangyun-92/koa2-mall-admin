@@ -2,15 +2,12 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-30 13:12:18
+ * @Last Modified time: 2021-07-30 13:37:05
  * 品牌
  */
 const Brand = require('../models/brands')
-const sequelize = require('sequelize')
 const { Op } = require('sequelize')
 const { returnCtxBody, fileUpload } = require('../utils/index')
-const path = require('path')
-const fs = require('fs')
 
 class BrandCtl {
   // 获取品牌列表

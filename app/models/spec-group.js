@@ -2,14 +2,14 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:49:05 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-30 13:34:51
- * 品牌模型
+ * @Last Modified time: 2021-07-30 13:29:31
+ * 品类模型
  */
 const { DataTypes } = require('sequelize')
 const sequelize = require('./db')
 
-const Category = sequelize.define(
-  'Categorys',
+const SpecGroup = sequelize.define(
+  'SpecGroups',
   {
     id: {
       type: DataTypes.INTEGER.UNSIGNED,
@@ -17,27 +17,14 @@ const Category = sequelize.define(
       autoIncrement: true,
       allowNull: false,
     },
+    // 品类ID
+    spg_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: false,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    parent_id: {
-      type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: true,
-    },
-    // 是否含有下级分类
-    if_parent: {
-      type: DataTypes.TINYINT.UNSIGNED,
-      allowNull: false,
-    },
-    // 排名指数
-    sort: {
-      type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: false,
-    },
-    is_deleted: {
-      type: DataTypes.TINYINT,
-      allowNull: true,
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -49,8 +36,8 @@ const Category = sequelize.define(
     },
   },
   {
-    tableName: 't_category',
+    tableName: 't_spec_group',
   }
 )
 
-module.exports = Category
+module.exports = SpecGroup

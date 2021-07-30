@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 10:21:30
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-30 11:30:13
+ * @Last Modified time: 2021-07-30 14:37:43
  */
 const path = require('path')
 const fs = require('fs')
@@ -32,7 +32,7 @@ function returnCtxBody({
  * @param {*} ctx 
  * @param {*} savePath 保存的文件夹
  * @param {*} isMore 是否批量上传
- * @returns 
+ * @returns 图片保存的路径
  */
 function fileUpload(ctx, savePath, isMore = false) {
   const file = ctx.request.files.file
@@ -46,7 +46,27 @@ function fileUpload(ctx, savePath, isMore = false) {
   return `http://${ctx.headers.host}/uploads/${savePath}/${newFileName}`
 }
 
+/**
+ * 递归组装树数据
+ * @param {*} arr 
+ * @param {*} pid 
+ * @returns 组装好的树结构
+ */
+function createTree(arr, pid = 0) {
+  return arr
+    .filter((v) => v.parent_id === pid)
+    .map((v) => {
+      v = JSON.parse(JSON.stringify(v))
+      const children = createTree(arr, v.id)
+      if (children.length) {
+        v.children = createTree(arr, v.id)
+      }
+      return v
+    })
+}
+
 module.exports = {
   returnCtxBody,
   fileUpload,
+  createTree,
 }
