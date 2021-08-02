@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-08-02 17:27:19
+ * @Last Modified time: 2021-08-02 22:20:15
  * 商品
  */
 const Good = require('../models/goods')
@@ -10,6 +10,7 @@ const sequelize = require('sequelize')
 const { Op } = require('sequelize')
 const { returnCtxBody } = require('../utils/index')
 const Product = require('../models/products')
+const SpecParam = require('../models/spec-param')
 
 class GoodCtl {
   // 获取商品列表
@@ -51,6 +52,20 @@ class GoodCtl {
         total: count,
       },
     })
+  }
+
+  // 根据商品所属的产品id获取指定商品所拥有的参数列表
+  async getGoodParam(ctx) {
+    const { spu_id } = ctx.request.body
+    const products = await Product.findAll(spu_id)
+    const params = await SpecParam.findAll({
+      where: { spg_id: products[0].spg_id },
+    })
+    ctx.body = {
+      result: true,
+      status: 200,
+      data: params,
+    }
   }
 
   // 创建/更新商品
