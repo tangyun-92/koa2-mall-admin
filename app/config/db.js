@@ -2,7 +2,7 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:50:33 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-08-03 09:37:02
+ * @Last Modified time: 2021-08-03 15:11:04
  */
 let MYSQL_CONF
 
@@ -15,6 +15,11 @@ MYSQL_CONF = {
   database: 'new-retail',
 }
 
+BASE_CONFIG = {
+  staticUrl: '172.16.11.229:8080' // 静态资源地址 -- 存放图片
+}
+
 module.exports = {
   MYSQL_CONF,
+  BASE_CONFIG,
 }
