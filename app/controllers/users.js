@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-30 14:32:19
+ * @Last Modified time: 2021-08-05 14:04:29
  * 用户
  */
 const User = require('../models/users')
@@ -36,7 +36,7 @@ class UserCtl {
     const token = jsonwebtoken.sign(
       { id: user.id, username: user.username },
       secret,
-      { expiresIn: '1d' }
+      { expiresIn: '1h' }
     )
     ctx.body = {
       data: { token, username },
