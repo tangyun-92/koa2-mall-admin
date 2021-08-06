@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-08-03 14:57:28
+ * @Last Modified time: 2021-08-06 10:42:06
  * 商品
  */
 const Good = require('../models/goods')
@@ -27,7 +27,7 @@ class GoodCtl {
           [Op.like]: `${title}%`,
         },
         spu_id: {
-          [Op.like]: `${title}%`,
+          [Op.like]: `${spu_id}%`,
         },
       },
       attributes: {
