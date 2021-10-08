@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 10:21:30
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-08-03 15:13:06
+ * @Last Modified time: 2021-10-08 13:04:05
  */
 const path = require('path')
 const fs = require('fs')
@@ -96,8 +96,26 @@ function createTree(arr, pid = 0) {
     })
 }
 
+/**
+ * 时间戳转为标准时间
+ * @param {*} date 时间戳
+ * @returns 转换后的时间
+ */
+function formData(date) {
+  let s = new Date(date)
+  let y = s.getFullYear()
+  let m = s.getMonth() + 1 < 10 ? '0' + (s.getMonth() + 1) : s.getMonth() + 1
+  let dd = s.getDate() < 10 ? '0' + s.getDate() : s.getDate()
+  let hh = s.getHours() < 10 ? '0' + s.getHours() : s.getHours()
+  let mm = s.getMinutes() < 10 ? '0' + s.getMinutes() : s.getMinutes()
+  let ss = s.getSeconds() < 10 ? '0' + s.getSeconds() : s.getSeconds()
+  let endDate = y + '-' + m + '-' + dd + ' ' + hh + ':' + mm + ':' + ss
+  return endDate
+}
+
 module.exports = {
   returnCtxBody,
   fileUpload,
   createTree,
+  formData,
 }

@@ -2,17 +2,17 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:50:33 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-08-03 15:11:04
+ * @Last Modified time: 2021-10-08 09:14:20
  */
 let MYSQL_CONF
 
 MYSQL_CONF = {
-  host: '172.16.11.25',
+  host: 'localhost',
   // host: '192.168.2.29',
   user: 'root',
-  password: '123456',
+  password: '12345678',
   port: '3306',
-  database: 'new-retail',
+  database: 'mall',
 }
 
 BASE_CONFIG = {
