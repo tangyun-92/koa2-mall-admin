@@ -1,8 +1,8 @@
 /*
- * @Author: 唐云 
- * @Date: 2021-10-08 09:20:23 
+ * @Author: 唐云
+ * @Date: 2021-10-08 09:20:23
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-08 13:18:28
+ * @Last Modified time: 2021-10-08 14:19:01
  * 用户
  */
 const jsonwebtoken = require('jsonwebtoken')
@@ -107,6 +107,16 @@ class AdminCtl {
       secret,
       { expiresIn: '1d' }
     )
+    // 更新最后登录时间
+    const time = Date.now()
+    await Admin.update(
+      {
+        login_time: formData(time),
+      },
+      {
+        where: { id: user.id },
+      }
+    )
     ctx.body = {
       data: { token, username },
       status: 200,
@@ -137,15 +147,13 @@ class AdminCtl {
   // 删除用户
   async delete(ctx) {
     const { id } = ctx.request.body
-    await Admin.destroy(
-      {
-        where: {
-          id: {
-            [Op.or]: id,
-          },
+    await Admin.destroy({
+      where: {
+        id: {
+          [Op.or]: id,
         },
-      }
-    )
+      },
+    })
     ctx.body = returnCtxBody({})
   }
 

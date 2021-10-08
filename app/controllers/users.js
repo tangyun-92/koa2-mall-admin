@@ -2,11 +2,10 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-08-06 09:00:19
+ * @Last Modified time: 2021-10-08 14:32:14
  * 用户
  */
 const User = require('../models/users')
-const Role = require('../models/roles')
 const Employee = require('../models/employees')
 const jsonwebtoken = require('jsonwebtoken')
 const sequelize = require('sequelize')
@@ -77,11 +76,6 @@ class UserCtl {
         exclude: ['password'],
       }, // 显示过滤的字段
       include: [
-        {
-          model: Role,
-          as: 'rol',
-          attributes: [],
-        },
         {
           model: Employee,
           as: 'emp',

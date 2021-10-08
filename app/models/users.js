@@ -2,13 +2,12 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:48:48 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-28 14:39:16
+ * @Last Modified time: 2021-10-08 14:31:21
  * 用户模型
  */
 const { Sequelize, DataTypes } = require('sequelize')
 const sequelize = require('./db')
 const Employee = require('./employees')
-const Role = require('./roles')
 
 const User = sequelize.define(
   'Users',
@@ -59,8 +58,5 @@ const User = sequelize.define(
     freezeTableName: true, // 是否不需要以s结尾
   }
 )
-
-User.belongsTo(Role, { foreignKey: 'role_id', targetKey: 'id', as: 'rol' }) // 如果对应 Role 关联的是主键则不用写 targetKey，否则需要 targetKey: id
-User.belongsTo(Employee, { foreignKey: 'emp_id', targetKey: 'id', as: 'emp' })
 
 module.exports = User
