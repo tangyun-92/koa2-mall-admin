@@ -2,11 +2,11 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:48:41 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-30 10:48:39
+ * @Last Modified time: 2021-10-08 16:00:26
  * 品牌路由
  */
 const Router = require('koa-router')
-const router = new Router({ prefix: '/brands' })
+const router = new Router({ prefix: '/pms/brands' })
 const jwt = require('koa-jwt')
 
 const {
@@ -14,7 +14,7 @@ const {
   update,
   delete: del,
   upload
-} = require('../controllers/brands')
+} = require('../controllers/pms-brands')
 
 const { secret } = require('../config/jwt')
 

@@ -2,25 +2,24 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-30 13:37:05
+ * @Last Modified time: 2021-10-08 16:11:10
  * 品牌
  */
-const Brand = require('../models/brands')
+const Brand = require('../models/pms-brands')
 const { Op } = require('sequelize')
 const { returnCtxBody, fileUpload } = require('../utils/index')
 
 class BrandCtl {
   // 获取品牌列表
   async find(ctx) {
-    let { page = 1, pageSize = 5, name = '' } = ctx.request.body
-    page = Math.max(page, 1)
+    let { currentPage = 1, pageSize = 5, name = '' } = ctx.request.body
+    currentPage = Math.max(currentPage, 1)
     pageSize = Math.max(pageSize, 1)
     const { count, rows } = await Brand.findAndCountAll({
-      offset: (page - 1) * pageSize,
+      offset: (currentPage - 1) * pageSize,
       limit: pageSize,
-      order: ['id'],
+      order: [['id', 'DESC']],
       where: {
-        is_deleted: 0,
         name: {
           [Op.like]: `${name}%`,
         },
@@ -29,7 +28,7 @@ class BrandCtl {
     ctx.body = returnCtxBody({
       data: {
         records: rows,
-        page,
+        currentPage,
         pageSize,
         total: count,
       },
@@ -57,7 +56,6 @@ class BrandCtl {
     if (id) {
       ctx.verifyParams({
         name: { type: 'string', require: false },
-        letter: { type: 'string', require: false },
       })
       const repeatedId = await Brand.findByPk(id)
       if (!repeatedId) {
@@ -67,7 +65,6 @@ class BrandCtl {
     } else {
       ctx.verifyParams({
         name: { type: 'string', require: true },
-        letter: { type: 'string', require: true },
       })
       await Brand.create(ctx.request.body)
     }
@@ -77,7 +74,7 @@ class BrandCtl {
   // 删除品牌
   async delete(ctx) {
     const { id } = ctx.request.body
-    await Brand.update({ is_deleted: 1 }, {
+    await Brand.destroy({
       where: {
         id: {
           [Op.or]: id,
