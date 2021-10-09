@@ -2,14 +2,14 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-08 16:08:19
+ * @Last Modified time: 2021-10-09 09:41:26
  * 产品
  */
 const Product = require('../models/products')
 const sequelize = require('sequelize')
 const { Op } = require('sequelize')
 const { returnCtxBody } = require('../utils/index')
-const Category = require('../models/categorys')
+// const Category = require('../models/categorys')
 const SpecGroup = require('../models/spec-group')
 
 class ProductCtl {
@@ -41,16 +41,16 @@ class ProductCtl {
       },
       attributes: {
         include: [
-          [sequelize.col('c.name'), 'category_name'],
+          // [sequelize.col('c.name'), 'category_name'],
           [sequelize.col('s.name'), 'spec_group_name'],
         ]
       },
       include: [
-        {
-          model: Category,
-          as: 'c',
-          attributes: []
-        },
+        // {
+        //   model: Category,
+        //   as: 'c',
+        //   attributes: []
+        // },
         {
           model: SpecGroup,
           as: 's',

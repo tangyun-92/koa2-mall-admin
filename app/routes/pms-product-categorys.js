@@ -2,18 +2,18 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:48:41 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-07-30 13:40:00
+ * @Last Modified time: 2021-10-09 09:38:40
  * 商品分类路由
  */
 const Router = require('koa-router')
-const router = new Router({ prefix: '/categorys' })
+const router = new Router({ prefix: '/pms/product-categorys' })
 const jwt = require('koa-jwt')
 
 const {
   find,
   update,
   delete: del
-} = require('../controllers/categorys')
+} = require('../controllers/pms-product-categorys')
 
 const { secret } = require('../config/jwt')
 

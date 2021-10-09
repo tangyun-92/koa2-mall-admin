@@ -2,12 +2,12 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:49:05 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-08 16:07:52
+ * @Last Modified time: 2021-10-09 09:41:34
  * 产品模型
  */
 const { DataTypes } = require('sequelize')
 const sequelize = require('./db')
-const Category = require('../models/categorys')
+// const Category = require('../models/categorys')
 const SpecGroup = require('../models/spec-group')
 
 const Product = sequelize.define(
@@ -61,7 +61,7 @@ const Product = sequelize.define(
   }
 )
 
-Product.belongsTo(Category, { foreignKey: 'category_id', targetKey: 'id', as: 'c'})
+// Product.belongsTo(Category, { foreignKey: 'category_id', targetKey: 'id', as: 'c'})
 Product.belongsTo(SpecGroup, {
   foreignKey: 'spg_id',
   targetKey: 'spg_id',
