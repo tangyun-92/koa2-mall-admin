@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-09 13:53:32
+ * @Last Modified time: 2021-10-09 14:10:17
  * 商品分类
  */
 const PmsProductCategory = require('../models/pms-product-categorys')
@@ -21,13 +21,7 @@ class PmsProductCategoryCtl {
         },
       },
     })
-    // const obj = {
-    //   id: 0,
-    //   parent_id: 0,
-    //   name: '无上级分类'
-    // }
     const data = createTree(rows, 0)
-    // data.unshift(obj)
     ctx.body = returnCtxBody({
       data: {
         records: data,
