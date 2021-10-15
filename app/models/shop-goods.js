@@ -2,12 +2,12 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:49:05 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-08-06 09:02:39
+ * @Last Modified time: 2021-10-11 14:51:44
  * 商品零售店关联模型
  */
 const { DataTypes } = require('sequelize')
 const sequelize = require('./db')
-const Good = require('./goods')
+// const Good = require('./goods')
 
 const ShopGood = sequelize.define(
   'ShopGoods',
@@ -41,10 +41,10 @@ const ShopGood = sequelize.define(
   }
 )
 
-ShopGood.belongsTo(Good, {
-  foreignKey: 'sku_id',
-  targetKey: 'id',
-  as: 'g',
-})
+// ShopGood.belongsTo(Good, {
+//   foreignKey: 'sku_id',
+//   targetKey: 'id',
+//   as: 'g',
+// })
 
 module.exports = ShopGood

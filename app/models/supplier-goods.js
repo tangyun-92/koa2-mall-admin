@@ -2,12 +2,12 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:49:05 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-08-06 11:05:13
+ * @Last Modified time: 2021-10-11 14:51:51
  * 商品供应商关联模型
  */
 const { DataTypes } = require('sequelize')
 const sequelize = require('./db')
-const Good = require('./goods')
+// const Good = require('./goods')
 
 const SupplierGood = sequelize.define(
   'SupplierGoods',
@@ -31,10 +31,10 @@ const SupplierGood = sequelize.define(
   }
 )
 
-SupplierGood.belongsTo(Good, {
-  foreignKey: 'sku_id',
-  targetKey: 'id',
-  as: 'g',
-})
+// SupplierGood.belongsTo(Good, {
+//   foreignKey: 'sku_id',
+//   targetKey: 'id',
+//   as: 'g',
+// })
 
 module.exports = SupplierGood

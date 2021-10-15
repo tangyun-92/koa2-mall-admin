@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-08-05 17:23:47
+ * @Last Modified time: 2021-10-11 14:52:27
  * 零售店
  */
 const Shop = require('../models/shops')
@@ -11,7 +11,7 @@ const { returnCtxBody } = require('../utils/index')
 const sequelize = require('../models/db')
 const City = require('../models/citys')
 const ShopGood = require('../models/shop-goods')
-const Good = require('../models/goods')
+// const Good = require('../models/goods')
 
 class ShopCtl {
   // 获取零售店列表
@@ -61,16 +61,16 @@ class ShopCtl {
       where: {
         shop_id,
       },
-      attributes: {
-        include: [[sequelize.col('g.title'), 'shop_name']],
-      }, // 显示过滤的字段
-      include: [
-        {
-          model: Good,
-          as: 'g',
-          attributes: [],
-        },
-      ],
+      // attributes: {
+      //   include: [[sequelize.col('g.title'), 'shop_name']],
+      // }, // 显示过滤的字段
+      // include: [
+      //   {
+      //     model: Good,
+      //     as: 'g',
+      //     attributes: [],
+      //   },
+      // ],
     })
     ctx.body = returnCtxBody({
       data: {

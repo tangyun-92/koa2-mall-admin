@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-08 16:11:10
+ * @Last Modified time: 2021-10-12 09:29:35
  * 品牌
  */
 const Brand = require('../models/pms-brands')
@@ -30,6 +30,20 @@ class BrandCtl {
         records: rows,
         currentPage,
         pageSize,
+        total: count,
+      },
+    })
+  }
+
+  // 获取品牌map
+  async findMap(ctx) {
+    const { count, rows } = await Brand.findAndCountAll({
+      order: [['id', 'DESC']],
+      attributes: ['id', 'name'],
+    })
+    ctx.body = returnCtxBody({
+      data: {
+        records: rows,
         total: count,
       },
     })

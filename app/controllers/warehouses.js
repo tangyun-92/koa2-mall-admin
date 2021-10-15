@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-08-05 16:41:15
+ * @Last Modified time: 2021-10-11 14:52:47
  * 仓库
  */
 const Warehouse = require('../models/warehouses')
@@ -11,7 +11,7 @@ const { returnCtxBody } = require('../utils/index')
 const sequelize = require('../models/db')
 const City = require('../models/citys')
 const WarehouseGood = require('../models/warehouse-goods')
-const Good = require('../models/goods')
+// const Good = require('../models/goods')
 
 class WarehouseCtl {
   // 获取仓库列表
@@ -60,18 +60,18 @@ class WarehouseCtl {
       where: {
         warehouse_id,
       },
-      attributes: {
-        include: [
-          [sequelize.col('g.title'), 'shop_name'],
-        ]
-      }, // 显示过滤的字段
-      include: [
-        {
-          model: Good,
-          as: 'g',
-          attributes: [],
-        }
-      ],
+      // attributes: {
+      //   include: [
+      //     [sequelize.col('g.title'), 'shop_name'],
+      //   ]
+      // }, // 显示过滤的字段
+      // include: [
+      //   {
+      //     model: Good,
+      //     as: 'g',
+      //     attributes: [],
+      //   }
+      // ],
     })
     ctx.body = returnCtxBody({
       data: {

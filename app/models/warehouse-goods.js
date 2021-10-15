@@ -2,13 +2,13 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:49:05 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-08-05 16:58:54
+ * @Last Modified time: 2021-10-11 14:51:56
  * 商品仓库关联模型
  */
 const { DataTypes } = require('sequelize')
 const sequelize = require('./db')
 const Warehouse = require('./warehouses')
-const Good = require('./goods')
+// const Good = require('./goods')
 
 const WarehouseGood = sequelize.define(
   'WarehouseGoods',
@@ -42,10 +42,10 @@ const WarehouseGood = sequelize.define(
   }
 )
 
-WarehouseGood.belongsTo(Good, {
-  foreignKey: 'sku_id',
-  targetKey: 'id',
-  as: 'g',
-})
+// WarehouseGood.belongsTo(Good, {
+//   foreignKey: 'sku_id',
+//   targetKey: 'id',
+//   as: 'g',
+// })
 
 module.exports = WarehouseGood

@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-10-09 15:16:03
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-11 13:18:54
+ * @Last Modified time: 2021-10-12 14:12:12
  * 商品属性
  */
 
@@ -14,15 +14,15 @@ const { returnCtxBody } = require('../utils/index')
 class PmsProductAttributeCtl {
   // 获取商品属性列表
   async find(ctx) {
-    const { attributeCategoryId, type } = ctx.request.body
+    const { attributeCategoryId, type = '' } = ctx.request.body
     const { count, rows } = await PmsProductAttribute.findAndCountAll({
-      order: [['id', 'DESC']],
+      order: ['sort'],
       where: {
         product_attribute_category_id: {
           [Op.like]: `${attributeCategoryId}`,
         },
         type: {
-          [Op.like]: `${type}`,
+          [Op.like]: type ? `${type}` : `%${type}%`,
         },
       },
     })
