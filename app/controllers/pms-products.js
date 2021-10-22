@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-15 16:45:05
+ * @Last Modified time: 2021-10-22 15:40:25
  * 商品
  */
 const Product = require('../models/pms-products')
@@ -28,6 +28,9 @@ class ProductCtl {
     } = ctx.request.body
     page = Math.max(page, 1)
     pageSize = Math.max(pageSize, 1)
+    if (product_category_id === null) {
+      product_category_id = ''
+    }
     const { count, rows } = await Product.findAndCountAll({
       offset: (page - 1) * pageSize,
       limit: pageSize,
@@ -91,8 +94,8 @@ class ProductCtl {
     })
     const sku = await PmsSkuStock.findAll({
       where: {
-        product_id: id
-      }
+        product_id: id,
+      },
     })
     res.dataValues.productAttributeValueList = attr
     res.dataValues.skuTableData = sku
@@ -110,7 +113,7 @@ class ProductCtl {
       status: 200,
       result: true,
       message: '上传成功',
-      url,
+      url: url[0].url,
     }
   }
 
@@ -125,31 +128,67 @@ class ProductCtl {
       }
       await Product.update(ctx.request.body, { where: { id } })
       // 商品 sku 库存
-      skuTableData.forEach(async item => {
-        await PmsSkuStock.create({
-          product_id: repeatedId.id,
-          stock: item.stock,
-          low_stock: item.low_stock,
-          price: item.price,
-          sku_code: item.sku_code,
-          sp_data: item.sp_data,
-        })
+      skuTableData.forEach(async (item) => {
+        // 如果id存在，执行更新操作
+        if (item.id) {
+          await PmsSkuStock.update(
+            {
+              id: item.id,
+              product_id: repeatedId.id,
+              stock: item.stock,
+              low_stock: item.low_stock,
+              price: item.price,
+              sku_code: item.sku_code,
+              sp_data: item.sp_data,
+              pic: item.pic
+            },
+            {
+              where: {
+                id: item.id,
+              },
+            }
+          )
+        } else {
+          // 如果id不存在执行新增操作，并且新增之前先删除之前的sku信息
+          await PmsSkuStock.destroy({
+            where: {
+              product_id: repeatedId.id,
+            },
+          })
+          await PmsSkuStock.create({
+            product_id: repeatedId.id,
+            stock: item.stock ? item.stock : null,
+            low_stock: item.low_stock ? item.low_stock : null,
+            price: item.price ? item.price : null,
+            sku_code: item.sku_code ? item.sku_code : null,
+            sp_data: item.sp_data ? item.sp_data : null,
+            pic: item.pic ? item.pic : ''
+          })
+        }
       })
       // 商品属性值列表
-      // productAttributeValueList.forEach(async (item) => {
-      //   await PmsProductAttributeValue.update(
-      //     item,
-      //     {
-      //       where: { id: item.id },
-      //     }
-      //   )
-      // })
+      productAttributeValueList.forEach(async (item) => {
+        await PmsProductAttributeValue.update(item, {
+          where: { id: item.id },
+        })
+      })
     } else {
       const res = await Product.create(ctx.request.body)
-      console.log(res.id, '我是一个res的id')
+      // 商品 sku 库存
+      skuTableData.forEach(async (item) => {
+        await PmsSkuStock.create({
+          product_id: res.id,
+          stock: item.stock ? item.stock : null,
+          low_stock: item.low_stock ? item.low_stock : null,
+          price: item.price ? item.price : null,
+          sku_code: item.sku_code ? item.sku_code : null,
+          sp_data: item.sp_data ? item.sp_data : null,
+          pic: item.pic ? item.pic : '',
+        })
+      })
       productAttributeValueList.forEach(async (item) => {
         await PmsProductAttributeValue.create({
-          product_id: repeatedId.id,
+          product_id: res.id,
           product_attribute_id: item.product_attribute_id,
           value: item.value,
         })
@@ -161,6 +200,16 @@ class ProductCtl {
   // 删除商品
   async delete(ctx) {
     const { id } = ctx.request.body
+    await PmsSkuStock.destroy({
+      where: {
+        product_id: id
+      }
+    })
+    await PmsProductAttributeValue.destroy({
+      where: {
+        product_id: id
+      }
+    })
     await Product.destroy({
       where: {
         id: {
