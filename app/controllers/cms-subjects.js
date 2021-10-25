@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-25 14:18:41
+ * @Last Modified time: 2021-10-25 15:07:24
  * 专题
  */
 const Subject = require('../models/cms-subjects')
@@ -69,7 +69,7 @@ class SubjectCtl {
   async findMap(ctx) {
     const { count, rows } = await Subject.findAndCountAll({
       order: [['id', 'DESC']],
-      attributes: ['id', 'name'],
+      attributes: ['id', 'title'],
     })
     ctx.body = returnCtxBody({
       data: {
