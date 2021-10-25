@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-22 15:40:25
+ * @Last Modified time: 2021-10-25 17:02:53
  * 商品
  */
 const Product = require('../models/pms-products')
@@ -13,6 +13,8 @@ const ProductCategory = require('../models/pms-product-categorys')
 const Brand = require('../models/pms-brands')
 const PmsProductAttributeValue = require('../models/pms-product-attribute-value')
 const PmsSkuStock = require('../models/pms-sku-stock')
+const SubjectProductRelation = require('../models/cms-subjects-product-relation')
+const PreferenceAreaProductRelation = require('../models/cms-preference-area-product-relation')
 
 class ProductCtl {
   // 获取商品列表
@@ -97,8 +99,18 @@ class ProductCtl {
         product_id: id,
       },
     })
+    const subject = await SubjectProductRelation.findAll({
+      where: {
+        product_id: id
+      }
+    })
+    const subjectIds = []
+    subject.forEach(item => {
+      subjectIds.push(item.subject_id)
+    })
     res.dataValues.productAttributeValueList = attr
     res.dataValues.skuTableData = sku
+    res.dataValues.subjectIds = subjectIds
     ctx.body = returnCtxBody({
       data: {
         records: res,
@@ -119,7 +131,7 @@ class ProductCtl {
 
   // 创建/更新商品
   async update(ctx) {
-    const { id, product_category_id, productAttributeValueList, skuTableData } =
+    const { id, product_category_id, productAttributeValueList, skuTableData, subjectIds, preferenceIds } =
       ctx.request.body
     if (id) {
       const repeatedId = await Product.findByPk(id)
@@ -172,6 +184,30 @@ class ProductCtl {
           where: { id: item.id },
         })
       })
+      // 商品关联的专题
+      subjectIds.forEach(async item => {
+        await SubjectProductRelation.destroy({
+          where: {
+            product_id: repeatedId.id,
+          },
+        })
+        await SubjectProductRelation.create({
+          product_id: repeatedId.id,
+          subject_id: item
+        })
+      })
+      // 商品关联的优选
+      preferenceIds.forEach(async item => {
+        await PreferenceAreaProductRelation.destroy({
+          where: {
+            product_id: repeatedId.id,
+          },
+        })
+        await PreferenceAreaProductRelation.create({
+          product_id: repeatedId.id,
+          preference_id: item,
+        })
+      })
     } else {
       const res = await Product.create(ctx.request.body)
       // 商品 sku 库存
@@ -186,11 +222,26 @@ class ProductCtl {
           pic: item.pic ? item.pic : '',
         })
       })
+      // 商品属性
       productAttributeValueList.forEach(async (item) => {
         await PmsProductAttributeValue.create({
           product_id: res.id,
           product_attribute_id: item.product_attribute_id,
           value: item.value,
+        })
+      })
+      // 商品关联的主题
+      subjectIds.forEach(async item => {
+        await SubjectProductRelation.create({
+          product_id: res.id,
+          subject_id: item
+        })
+      })
+      // 商品关联的优选
+      preferenceIds.forEach(async item => {
+        await PreferenceAreaProductRelation.create({
+          product_id: res.id,
+          preference_id: item,
         })
       })
     }
@@ -209,6 +260,16 @@ class ProductCtl {
       where: {
         product_id: id
       }
+    })
+    await SubjectProductRelation.destroy({
+      where: {
+        product_id: id,
+      },
+    })
+    await PreferenceAreaProductRelation.destroy({
+      where: {
+        product_id: id,
+      },
     })
     await Product.destroy({
       where: {
