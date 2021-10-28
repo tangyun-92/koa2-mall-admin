@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-25 17:02:53
+ * @Last Modified time: 2021-10-28 10:40:34
  * 商品
  */
 const Product = require('../models/pms-products')
@@ -108,9 +108,19 @@ class ProductCtl {
     subject.forEach(item => {
       subjectIds.push(item.subject_id)
     })
+    const preference = await PreferenceAreaProductRelation.findAll({
+      where: {
+        product_id: id
+      }
+    })
+    const preferenceIds = []
+    preference.forEach(item => {
+      preferenceIds.push(item.preference_id)
+    })
     res.dataValues.productAttributeValueList = attr
     res.dataValues.skuTableData = sku
     res.dataValues.subjectIds = subjectIds
+    res.dataValues.preferenceIds = preferenceIds
     ctx.body = returnCtxBody({
       data: {
         records: res,
