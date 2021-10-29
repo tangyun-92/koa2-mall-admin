@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-28 10:51:03
+ * @Last Modified time: 2021-10-29 11:12:24
  * 商品
  */
 const Product = require('../models/pms-products')
@@ -15,6 +15,7 @@ const PmsProductAttributeValue = require('../models/pms-product-attribute-value'
 const PmsSkuStock = require('../models/pms-sku-stock')
 const SubjectProductRelation = require('../models/cms-subjects-product-relation')
 const PreferenceAreaProductRelation = require('../models/cms-preference-area-product-relation')
+const PmsProductLadder = require('../models/pms_product_ladder')
 
 class ProductCtl {
   // 获取商品列表
@@ -89,38 +90,50 @@ class ProductCtl {
   async detail(ctx) {
     const { id } = ctx.request.body
     const res = await Product.findByPk(id)
+    // 商品属性
     const attr = await PmsProductAttributeValue.findAll({
       where: {
         product_id: id,
       },
     })
+    // sku
     const sku = await PmsSkuStock.findAll({
       where: {
         product_id: id,
       },
     })
+    // 专题
     const subject = await SubjectProductRelation.findAll({
       where: {
-        product_id: id
-      }
+        product_id: id,
+      },
     })
     const subjectIds = []
-    subject.forEach(item => {
+    subject.forEach((item) => {
       subjectIds.push(item.subject_id)
     })
     const preference = await PreferenceAreaProductRelation.findAll({
       where: {
-        product_id: id
-      }
+        product_id: id,
+      },
     })
+    // 优选
     const preferenceIds = []
-    preference.forEach(item => {
+    preference.forEach((item) => {
       preferenceIds.push(item.preference_id)
+    })
+    // 阶梯价格
+    const ladderTableData = await PmsProductLadder.findAll({
+      where: {
+        product_id: id,
+      },
+      order: ['count'],
     })
     res.dataValues.productAttributeValueList = attr
     res.dataValues.skuTableData = sku
     res.dataValues.subjectIds = subjectIds
     res.dataValues.preferenceIds = preferenceIds
+    res.dataValues.ladderTableData = ladderTableData
     ctx.body = returnCtxBody({
       data: {
         records: res,
@@ -141,8 +154,15 @@ class ProductCtl {
 
   // 创建/更新商品
   async update(ctx) {
-    const { id, product_category_id, productAttributeValueList, skuTableData, subjectIds, preferenceIds } =
-      ctx.request.body
+    const {
+      id,
+      product_category_id,
+      productAttributeValueList,
+      skuTableData,
+      subjectIds,
+      preferenceIds,
+      ladderTableData,
+    } = ctx.request.body
     if (id) {
       const repeatedId = await Product.findByPk(id)
       if (!repeatedId) {
@@ -162,7 +182,7 @@ class ProductCtl {
               price: item.price,
               sku_code: item.sku_code,
               sp_data: item.sp_data,
-              pic: item.pic
+              pic: item.pic,
             },
             {
               where: {
@@ -184,7 +204,7 @@ class ProductCtl {
             price: item.price ? item.price : null,
             sku_code: item.sku_code ? item.sku_code : null,
             sp_data: item.sp_data ? item.sp_data : null,
-            pic: item.pic ? item.pic : ''
+            pic: item.pic ? item.pic : '',
           })
         }
       })
@@ -195,7 +215,7 @@ class ProductCtl {
         })
       })
       // 商品关联的专题
-      subjectIds.forEach(async item => {
+      subjectIds.forEach(async (item) => {
         await SubjectProductRelation.destroy({
           where: {
             product_id: repeatedId.id,
@@ -203,11 +223,11 @@ class ProductCtl {
         })
         await SubjectProductRelation.create({
           product_id: repeatedId.id,
-          subject_id: item
+          subject_id: item,
         })
       })
       // 商品关联的优选
-      preferenceIds.forEach(async item => {
+      preferenceIds.forEach(async (item) => {
         await PreferenceAreaProductRelation.destroy({
           where: {
             product_id: repeatedId.id,
@@ -217,6 +237,22 @@ class ProductCtl {
           product_id: repeatedId.id,
           preference_id: item,
         })
+      })
+      // 商品阶梯价格
+      ladderTableData.forEach(async (item) => {
+        if (item.count !== 0) {
+          await PmsProductLadder.destroy({
+            where: {
+              product_id: repeatedId.id,
+            },
+          })
+          await PmsProductLadder.create({
+            product_id: repeatedId.id,
+            count: item.count,
+            discount: item.discount,
+            price: item.price,
+          })
+        }
       })
     } else {
       const res = await Product.create(ctx.request.body)
@@ -241,18 +277,29 @@ class ProductCtl {
         })
       })
       // 商品关联的主题
-      subjectIds.forEach(async item => {
+      subjectIds.forEach(async (item) => {
         await SubjectProductRelation.create({
           product_id: res.id,
-          subject_id: item
+          subject_id: item,
         })
       })
       // 商品关联的优选
-      preferenceIds.forEach(async item => {
+      preferenceIds.forEach(async (item) => {
         await PreferenceAreaProductRelation.create({
           product_id: res.id,
           preference_id: item,
         })
+      })
+      // 商品阶梯价格
+      ladderTableData.forEach(async (item) => {
+        if (item.count !== 0) {
+          await PmsProductLadder.create({
+            product_id: res.id,
+            count: item.count,
+            discount: item.discount,
+            price: item.price,
+          })
+        }
       })
     }
     ctx.body = returnCtxBody({})
@@ -263,13 +310,13 @@ class ProductCtl {
     const { id } = ctx.request.body
     await PmsSkuStock.destroy({
       where: {
-        product_id: id
-      }
+        product_id: id,
+      },
     })
     await PmsProductAttributeValue.destroy({
       where: {
-        product_id: id
-      }
+        product_id: id,
+      },
     })
     await SubjectProductRelation.destroy({
       where: {
