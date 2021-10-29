@@ -2,13 +2,13 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-29 13:46:34
+ * @Last Modified time: 2021-10-29 15:19:46
  * 商品
  */
 const Product = require('../models/pms-products')
 const sequelize = require('sequelize')
 const { Op } = require('sequelize')
-const { returnCtxBody, fileUpload } = require('../utils/index')
+const { returnCtxBody, fileUpload, formData } = require('../utils/index')
 const ProductCategory = require('../models/pms-product-categorys')
 const Brand = require('../models/pms-brands')
 const PmsProductAttributeValue = require('../models/pms-product-attribute-value')
@@ -17,6 +17,7 @@ const SubjectProductRelation = require('../models/cms-subjects-product-relation'
 const PreferenceAreaProductRelation = require('../models/cms-preference-area-product-relation')
 const PmsProductLadder = require('../models/pms_product_ladder')
 const PmsProductFullReduction = require('../models/pms_product_full_reduction')
+const PmsProductVerifyRecord = require('../models/pms_product_verify_record')
 
 class ProductCtl {
   // 获取商品列表
@@ -133,8 +134,8 @@ class ProductCtl {
     // 满减价格
     const fullReduceTableData = await PmsProductFullReduction.findAll({
       where: {
-        product_id: id
-      }
+        product_id: id,
+      },
     })
     res.dataValues.productAttributeValueList = attr
     res.dataValues.skuTableData = sku
@@ -264,17 +265,17 @@ class ProductCtl {
         }
       })
       // 商品满减价格
-      fullReduceTableData.forEach(async item => {
+      fullReduceTableData.forEach(async (item) => {
         if (Number(item.full_price) !== 0) {
           await PmsProductFullReduction.destroy({
             where: {
-              product_id: repeatedId.id
-            }
+              product_id: repeatedId.id,
+            },
           })
           await PmsProductFullReduction.create({
             product_id: repeatedId.id,
             full_price: item.full_price,
-            reduce_price: item.reduce_price
+            reduce_price: item.reduce_price,
           })
         }
       })
@@ -326,12 +327,12 @@ class ProductCtl {
         }
       })
       // 商品满减价格
-      fullReduceTableData.forEach(async item => {
+      fullReduceTableData.forEach(async (item) => {
         if (Number(item.full_price) !== 0) {
           await PmsProductFullReduction.create({
             product_id: res.id,
             full_price: item.full_price,
-            reduce_price: item.reduce_price
+            reduce_price: item.reduce_price,
           })
         }
       })
@@ -370,6 +371,43 @@ class ProductCtl {
       },
     })
     ctx.body = returnCtxBody({})
+  }
+
+  // 审核商品
+  async verify(ctx) {
+    const { product_id, status } = ctx.request.body
+    const time = Date.now()
+    console.log(ctx.state, 'ctx.state')
+    await Product.update({
+      verify_status: status
+    }, {
+      where: {
+        id: product_id
+      }
+    })
+    await PmsProductVerifyRecord.create({
+      ...ctx.request.body,
+      product_id,
+      create_time: formData(time),
+      verify_man: ctx.state.user.username,
+    })
+    ctx.body = returnCtxBody({})
+  }
+
+  // 审核记录
+  async verifyRecord(ctx) {
+    const { id } = ctx.request.body
+    const res = await PmsProductVerifyRecord.findAll({
+      where: {
+        product_id: id,
+      },
+      order: [['create_time', 'DESC']],
+    })
+    ctx.body = returnCtxBody({
+      data: {
+        records: res,
+      },
+    })
   }
 }
 

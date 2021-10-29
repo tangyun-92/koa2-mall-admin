@@ -2,7 +2,7 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:48:41 
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-15 10:13:14
+ * @Last Modified time: 2021-10-29 15:20:02
  * 商品路由
  */
 const Router = require('koa-router')
@@ -14,7 +14,9 @@ const {
   update,
   delete: del,
   upload,
-  detail
+  detail,
+  verify,
+  verifyRecord,
 } = require('../controllers/pms-products')
 
 const { secret } = require('../config/jwt')
@@ -29,5 +31,7 @@ router.post('/detail', auth, detail)
 router.post('/update', auth, update)
 router.post('/delete', auth, del)
 router.post('/upload', auth, upload)
+router.post('/verify', auth, verify)
+router.post('/verifyRecord', auth, verifyRecord)
 
 module.exports = router
