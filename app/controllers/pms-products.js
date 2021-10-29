@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-29 11:12:24
+ * @Last Modified time: 2021-10-29 13:46:34
  * 商品
  */
 const Product = require('../models/pms-products')
@@ -16,6 +16,7 @@ const PmsSkuStock = require('../models/pms-sku-stock')
 const SubjectProductRelation = require('../models/cms-subjects-product-relation')
 const PreferenceAreaProductRelation = require('../models/cms-preference-area-product-relation')
 const PmsProductLadder = require('../models/pms_product_ladder')
+const PmsProductFullReduction = require('../models/pms_product_full_reduction')
 
 class ProductCtl {
   // 获取商品列表
@@ -129,11 +130,18 @@ class ProductCtl {
       },
       order: ['count'],
     })
+    // 满减价格
+    const fullReduceTableData = await PmsProductFullReduction.findAll({
+      where: {
+        product_id: id
+      }
+    })
     res.dataValues.productAttributeValueList = attr
     res.dataValues.skuTableData = sku
     res.dataValues.subjectIds = subjectIds
     res.dataValues.preferenceIds = preferenceIds
     res.dataValues.ladderTableData = ladderTableData
+    res.dataValues.fullReduceTableData = fullReduceTableData
     ctx.body = returnCtxBody({
       data: {
         records: res,
@@ -162,6 +170,7 @@ class ProductCtl {
       subjectIds,
       preferenceIds,
       ladderTableData,
+      fullReduceTableData,
     } = ctx.request.body
     if (id) {
       const repeatedId = await Product.findByPk(id)
@@ -240,7 +249,7 @@ class ProductCtl {
       })
       // 商品阶梯价格
       ladderTableData.forEach(async (item) => {
-        if (item.count !== 0) {
+        if (Number(item.count) !== 0) {
           await PmsProductLadder.destroy({
             where: {
               product_id: repeatedId.id,
@@ -251,6 +260,21 @@ class ProductCtl {
             count: item.count,
             discount: item.discount,
             price: item.price,
+          })
+        }
+      })
+      // 商品满减价格
+      fullReduceTableData.forEach(async item => {
+        if (Number(item.full_price) !== 0) {
+          await PmsProductFullReduction.destroy({
+            where: {
+              product_id: repeatedId.id
+            }
+          })
+          await PmsProductFullReduction.create({
+            product_id: repeatedId.id,
+            full_price: item.full_price,
+            reduce_price: item.reduce_price
           })
         }
       })
@@ -292,12 +316,22 @@ class ProductCtl {
       })
       // 商品阶梯价格
       ladderTableData.forEach(async (item) => {
-        if (item.count !== 0) {
+        if (Number(item.count) !== 0) {
           await PmsProductLadder.create({
             product_id: res.id,
             count: item.count,
             discount: item.discount,
             price: item.price,
+          })
+        }
+      })
+      // 商品满减价格
+      fullReduceTableData.forEach(async item => {
+        if (Number(item.full_price) !== 0) {
+          await PmsProductFullReduction.create({
+            product_id: res.id,
+            full_price: item.full_price,
+            reduce_price: item.reduce_price
           })
         }
       })
