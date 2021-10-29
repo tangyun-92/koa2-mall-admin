@@ -2,7 +2,7 @@
  * @Author: 唐云
  * @Date: 2021-07-25 21:48:32
  * @Last Modified by: 唐云
- * @Last Modified time: 2021-10-29 15:19:46
+ * @Last Modified time: 2021-10-29 16:48:29
  * 商品
  */
 const Product = require('../models/pms-products')
@@ -18,6 +18,7 @@ const PreferenceAreaProductRelation = require('../models/cms-preference-area-pro
 const PmsProductLadder = require('../models/pms_product_ladder')
 const PmsProductFullReduction = require('../models/pms_product_full_reduction')
 const PmsProductVerifyRecord = require('../models/pms_product_verify_record')
+const PmsProductOperateLog = require('../models/pms_product_operate_log')
 
 class ProductCtl {
   // 获取商品列表
@@ -179,6 +180,24 @@ class ProductCtl {
         ctx.throw(200, '商品不存在')
       }
       await Product.update(ctx.request.body, { where: { id } })
+      const newProductInfo = await Product.findByPk(id)
+      // 生成一条操作记录
+      if (repeatedId.price !== newProductInfo.price || repeatedId.promotion_price !== newProductInfo.promotion_price || repeatedId.gift_point !== newProductInfo.gift_point || repeatedId.use_point_limit !== newProductInfo.use_point_limit) {
+        const time = Date.now()
+        await PmsProductOperateLog.create({
+          product_id: repeatedId.id,
+          price_old: repeatedId.price,
+          price_new: newProductInfo.price,
+          sale_price_old: repeatedId.promotion_price,
+          sale_price_new: newProductInfo.promotion_price,
+          gift_point_old: repeatedId.gift_point,
+          gift_point_new: newProductInfo.gift_point,
+          use_point_limit_old: repeatedId.use_point_limit,
+          use_point_limit_new: newProductInfo.use_point_limit,
+          operate_man: ctx.state.user.username,
+          create_time: formData(time),
+        })
+      }
       // 商品 sku 库存
       skuTableData.forEach(async (item) => {
         // 如果id存在，执行更新操作
@@ -378,13 +397,16 @@ class ProductCtl {
     const { product_id, status } = ctx.request.body
     const time = Date.now()
     console.log(ctx.state, 'ctx.state')
-    await Product.update({
-      verify_status: status
-    }, {
-      where: {
-        id: product_id
+    await Product.update(
+      {
+        verify_status: status,
+      },
+      {
+        where: {
+          id: product_id,
+        },
       }
-    })
+    )
     await PmsProductVerifyRecord.create({
       ...ctx.request.body,
       product_id,
@@ -398,6 +420,22 @@ class ProductCtl {
   async verifyRecord(ctx) {
     const { id } = ctx.request.body
     const res = await PmsProductVerifyRecord.findAll({
+      where: {
+        product_id: id,
+      },
+      order: [['create_time', 'DESC']],
+    })
+    ctx.body = returnCtxBody({
+      data: {
+        records: res,
+      },
+    })
+  }
+
+  // 操作记录
+  async operateLog(ctx) {
+    const { id } = ctx.request.body
+    const res = await PmsProductOperateLog.findAll({
       where: {
         product_id: id,
       },
