@@ -1,0 +1,21 @@
+[2021-11-02T14:42:48.225] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"","nick_name":"","note":"","id":null}
+response time: 4
+err name: Error
+err message: 用户名已存在
+err stack: Error: 用户名已存在
+    at Object.throw (D:\test\mall\koa2-mall-admin\node_modules\koa\lib\context.js:97:11)
+    at update (D:\test\mall\koa2-mall-admin\app\controllers\ums-admins.js:59:16)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async verifyParam (D:\test\mall\koa2-mall-admin\node_modules\koa-parameter\index.js:52:7)
+    at async D:\test\mall\koa2-mall-admin\app\index.js:61:5
+    at async logger (D:\test\mall\koa2-mall-admin\node_modules\koa-logger\index.js:67:7)
+    at async serve (D:\test\mall\koa2-mall-admin\node_modules\koa-static\index.js:53:9)
+    at async cors (D:\test\mall\koa2-mall-admin\node_modules\koa2-cors\dist\index.js:91:9)
+*************** error log end ***************
+

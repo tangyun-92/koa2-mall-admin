@@ -1,0 +1,532 @@
+[2021-11-02T14:11:33.463] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2021-11-02T14:11:44.544] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"","nick_name":"","note":"","id":null}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2021-11-02T14:11:56.712] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"","nick_name":"","note":"","id":null}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2021-11-02T14:12:43.436] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2021-11-02T14:13:02.210] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","nick_name":"我是超管","note":null,"id":1}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2021-11-02T14:17:24.252] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","nick_name":"我是超管","note":null,"id":1}
+response time: 65
+response status: 500
+response body: 
+{"stack":"SequelizeDatabaseError: Data too long for column 'email' at row 1\n    at Query.formatError (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:265:16)\n    at Query.run (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:77:18)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\sequelize.js:619:16\n    at async MySQLQueryInterface.bulkUpdate (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:882:12)\n    at async Function.update (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\model.js:3188:28)\n    at async update (D:\\test\\mall\\koa2-mall-admin\\app\\controllers\\ums-admins.js:70:7)\n    at async verifyParam (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-parameter\\index.js:52:7)\n    at async D:\\test\\mall\\koa2-mall-admin\\app\\index.js:36:5\n    at async logger (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-logger\\index.js:67:7)","name":"SequelizeDatabaseError","parent":{"code":"ER_DATA_TOO_LONG","errno":1406,"sqlState":"22001","sqlMessage":"Data too long for column 'email' at row 1","sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1]},"original":{"code":"ER_DATA_TOO_LONG","errno":1406,"sqlState":"22001","sqlMessage":"Data too long for column 'email' at row 1","sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1]},"sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1],"message":"Data too long for column 'email' at row 1","status":500,"result":false}
+*************** response log end ***************
+
+[2021-11-02T14:17:33.644] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","nick_name":"我是超管","note":null,"id":1}
+response time: 10
+response status: 500
+response body: 
+{"stack":"SequelizeDatabaseError: Data too long for column 'email' at row 1\n    at Query.formatError (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:265:16)\n    at Query.run (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:77:18)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\sequelize.js:619:16\n    at async MySQLQueryInterface.bulkUpdate (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:882:12)\n    at async Function.update (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\model.js:3188:28)\n    at async update (D:\\test\\mall\\koa2-mall-admin\\app\\controllers\\ums-admins.js:70:7)\n    at async verifyParam (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-parameter\\index.js:52:7)\n    at async D:\\test\\mall\\koa2-mall-admin\\app\\index.js:36:5\n    at async logger (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-logger\\index.js:67:7)","name":"SequelizeDatabaseError","parent":{"code":"ER_DATA_TOO_LONG","errno":1406,"sqlState":"22001","sqlMessage":"Data too long for column 'email' at row 1","sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1]},"original":{"code":"ER_DATA_TOO_LONG","errno":1406,"sqlState":"22001","sqlMessage":"Data too long for column 'email' at row 1","sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1]},"sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1],"message":"Data too long for column 'email' at row 1","status":500,"result":false}
+*************** response log end ***************
+
+[2021-11-02T14:17:57.820] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","nick_name":"我是超管","note":null,"id":1}
+response time: 67
+response status: 500
+response body: 
+{"stack":"SequelizeDatabaseError: Data too long for column 'email' at row 1\n    at Query.formatError (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:265:16)\n    at Query.run (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:77:18)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\sequelize.js:619:16\n    at async MySQLQueryInterface.bulkUpdate (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:882:12)\n    at async Function.update (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\model.js:3188:28)\n    at async update (D:\\test\\mall\\koa2-mall-admin\\app\\controllers\\ums-admins.js:70:7)\n    at async verifyParam (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-parameter\\index.js:52:7)\n    at async D:\\test\\mall\\koa2-mall-admin\\app\\index.js:36:5\n    at async logger (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-logger\\index.js:67:7)","name":"SequelizeDatabaseError","parent":{"code":"ER_DATA_TOO_LONG","errno":1406,"sqlState":"22001","sqlMessage":"Data too long for column 'email' at row 1","sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1]},"original":{"code":"ER_DATA_TOO_LONG","errno":1406,"sqlState":"22001","sqlMessage":"Data too long for column 'email' at row 1","sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1]},"sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1],"message":"Data too long for column 'email' at row 1","status":500,"result":false}
+*************** response log end ***************
+
+[2021-11-02T14:18:30.883] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","nick_name":"我是超管","note":null,"id":1}
+response time: 66
+response status: 500
+response body: 
+{"stack":"SequelizeDatabaseError: Data too long for column 'email' at row 1\n    at Query.formatError (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:265:16)\n    at Query.run (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:77:18)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\sequelize.js:619:16\n    at async MySQLQueryInterface.bulkUpdate (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:882:12)\n    at async Function.update (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\model.js:3188:28)\n    at async update (D:\\test\\mall\\koa2-mall-admin\\app\\controllers\\ums-admins.js:70:7)\n    at async verifyParam (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-parameter\\index.js:52:7)\n    at async D:\\test\\mall\\koa2-mall-admin\\app\\index.js:36:5\n    at async logger (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-logger\\index.js:67:7)","name":"SequelizeDatabaseError","parent":{"code":"ER_DATA_TOO_LONG","errno":1406,"sqlState":"22001","sqlMessage":"Data too long for column 'email' at row 1","sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1]},"original":{"code":"ER_DATA_TOO_LONG","errno":1406,"sqlState":"22001","sqlMessage":"Data too long for column 'email' at row 1","sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1]},"sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1],"message":"Data too long for column 'email' at row 1","status":500,"result":false}
+*************** response log end ***************
+
+[2021-11-02T14:18:41.462] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","nick_name":"我是超管","note":null,"id":1}
+response time: 65
+response status: 500
+response body: 
+{"stack":"SequelizeDatabaseError: Data too long for column 'email' at row 1\n    at Query.formatError (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:265:16)\n    at Query.run (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:77:18)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\sequelize.js:619:16\n    at async MySQLQueryInterface.bulkUpdate (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:882:12)\n    at async Function.update (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\model.js:3188:28)\n    at async update (D:\\test\\mall\\koa2-mall-admin\\app\\controllers\\ums-admins.js:70:7)\n    at async verifyParam (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-parameter\\index.js:52:7)\n    at async D:\\test\\mall\\koa2-mall-admin\\app\\index.js:36:5\n    at async logger (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-logger\\index.js:67:7)","name":"SequelizeDatabaseError","parent":{"code":"ER_DATA_TOO_LONG","errno":1406,"sqlState":"22001","sqlMessage":"Data too long for column 'email' at row 1","sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1]},"original":{"code":"ER_DATA_TOO_LONG","errno":1406,"sqlState":"22001","sqlMessage":"Data too long for column 'email' at row 1","sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1]},"sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1],"message":"Data too long for column 'email' at row 1","status":500,"result":false}
+*************** response log end ***************
+
+[2021-11-02T14:18:57.581] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","nick_name":"我是超管","note":null,"id":1}
+response time: 65
+response status: 500
+response body: 
+{"stack":"SequelizeDatabaseError: Data too long for column 'email' at row 1\n    at Query.formatError (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:265:16)\n    at Query.run (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:77:18)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\sequelize.js:619:16\n    at async MySQLQueryInterface.bulkUpdate (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:882:12)\n    at async Function.update (D:\\test\\mall\\koa2-mall-admin\\node_modules\\sequelize\\lib\\model.js:3188:28)\n    at async update (D:\\test\\mall\\koa2-mall-admin\\app\\controllers\\ums-admins.js:70:7)\n    at async verifyParam (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-parameter\\index.js:52:7)\n    at async D:\\test\\mall\\koa2-mall-admin\\app\\index.js:36:5\n    at async logger (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-logger\\index.js:67:7)","name":"SequelizeDatabaseError","parent":{"code":"ER_DATA_TOO_LONG","errno":1406,"sqlState":"22001","sqlMessage":"Data too long for column 'email' at row 1","sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1]},"original":{"code":"ER_DATA_TOO_LONG","errno":1406,"sqlState":"22001","sqlMessage":"Data too long for column 'email' at row 1","sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1]},"sql":"UPDATE `ums_admin` SET `username`=?,`status`=?,`email`=?,`nick_name`=?,`note`=?,`id`=? WHERE `id` = ?","parameters":["admin",1,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","我是超管",null,1,1],"message":"Data too long for column 'email' at row 1","status":500,"result":false}
+*************** response log end ***************
+
+[2021-11-02T14:19:43.825] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"","nick_name":"我是超管","note":null,"id":1}
+response time: 48
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:19:43.844] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 6
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是超管","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2021-11-01 14:18:00","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:19:52.442] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"","nick_name":"","note":"","id":null}
+response time: 3
+response status: 200
+response body: 
+{"stack":"Error: 用户名已存在\n    at Object.throw (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa\\lib\\context.js:97:11)\n    at update (D:\\test\\mall\\koa2-mall-admin\\app\\controllers\\ums-admins.js:59:16)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async verifyParam (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-parameter\\index.js:52:7)\n    at async D:\\test\\mall\\koa2-mall-admin\\app\\index.js:36:5\n    at async logger (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-logger\\index.js:67:7)\n    at async serve (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-static\\index.js:53:9)\n    at async cors (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa2-cors\\dist\\index.js:91:9)","expose":true,"statusCode":200,"status":200,"name":"Error","message":"用户名已存在","result":false}
+*************** response log end ***************
+
+[2021-11-02T14:21:58.941] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 66
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是超管","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2021-11-01 14:18:00","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:30:10.375] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 66
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是超管","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2021-11-01 14:18:00","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:30:31.541] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 62
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是超管","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2021-11-01 14:18:00","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:36:53.893] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 60
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是超管","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2021-11-01 14:18:00","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:37:16.403] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"","nick_name":"我是超管","note":null,"id":1}
+response time: 48
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:37:16.422] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 6
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是超管","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2021-11-01 14:18:00","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:37:41.386] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"","nick_name":"我是超管","note":null,"id":1}
+response time: 73
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:37:41.399] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 5
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是超管","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2021-11-01 14:18:00","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:37:56.661] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"","nick_name":"我是","note":null,"id":1}
+response time: 59
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:37:56.678] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 5
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2021-11-01 14:18:00","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:38:07.305] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 6
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":1,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":1,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":0,"sort":null}],"currentPage":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:38:09.735] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/update
+request client ip:  ::1
+request body: 
+{"name":"超级管理员","description":"拥有所有的权限","status":1,"id":1}
+response time: 62
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:38:09.746] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 3
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":1,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":1,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":0,"sort":null}],"currentPage":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:38:45.444] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/update
+request client ip:  ::1
+request body: 
+{"name":"超级管理员","description":"拥有所有的权限","status":1,"id":1}
+response time: 125
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:38:45.473] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 15
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":1,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":1,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":0,"sort":null}],"currentPage":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:41:03.648] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/update
+request client ip:  ::1
+request body: 
+{"name":"商品管理员","description":"只有商品的权限","status":1,"id":2}
+response time: 128
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:41:03.675] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 10
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":1,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":1,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":0,"sort":null}],"currentPage":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:41:48.355] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/update
+request client ip:  ::1
+request body: 
+{"name":"订单管理员","description":"只有订单的权限","status":0,"id":3}
+response time: 150
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:41:48.391] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 20
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":1,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":1,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":0,"sort":null}],"currentPage":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:42:08.003] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/update
+request client ip:  ::1
+request body: 
+{"name":"测试","description":"","status":1,"id":null}
+response time: 110
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:42:08.024] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 6
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":1,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":1,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":0,"sort":null},{"id":4,"name":"测试","description":"","admin_count":null,"create_time":"2021-11-02 14:42:07","status":1,"sort":null}],"currentPage":1,"pageSize":10,"total":4},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:42:12.978] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/update
+request client ip:  ::1
+request body: 
+{"name":"测试","description":"","status":0,"id":4}
+response time: 63
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:42:13.000] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 5
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":1,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":1,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":0,"sort":null},{"id":4,"name":"测试","description":"","admin_count":null,"create_time":"2021-11-02 14:42:07","status":0,"sort":null}],"currentPage":1,"pageSize":10,"total":4},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:42:14.612] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/delete
+request client ip:  ::1
+request body: 
+{"id":["4"],"loading":true}
+response time: 123
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:42:14.625] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 4
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":1,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":1,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":0,"sort":null}],"currentPage":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:42:42.907] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 6
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2021-11-01 14:18:00","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:43:20.195] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"admin","status":1,"email":"","nick_name":"","note":"","id":null}
+response time: 57
+response status: 200
+response body: 
+{"stack":"Error: 用户名已存在\n    at Object.throw (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa\\lib\\context.js:97:11)\n    at update (D:\\test\\mall\\koa2-mall-admin\\app\\controllers\\ums-admins.js:59:16)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async verifyParam (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-parameter\\index.js:52:7)\n    at async D:\\test\\mall\\koa2-mall-admin\\app\\index.js:51:5\n    at async logger (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-logger\\index.js:67:7)\n    at async serve (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-static\\index.js:53:9)\n    at async cors (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa2-cors\\dist\\index.js:91:9)","expose":true,"statusCode":200,"status":200,"name":"Error","message":"用户名已存在","result":false}
+*************** response log end ***************
