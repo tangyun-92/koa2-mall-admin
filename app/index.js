@@ -35,6 +35,7 @@ app.use(logger())
 // logger
 app.use(async (ctx, next) => {
   const token = ctx.request.header.authorization
+  // 添加容错
   if (token) {
     const result = jwt.verify(token.split(' ')[1], secret, { expiresIn: '1d' })
     const time = Date.now()
