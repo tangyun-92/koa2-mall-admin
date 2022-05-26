@@ -2,7 +2,7 @@
  * @Author: 唐云 
  * @Date: 2021-07-25 21:50:33 
  * @Last Modified by: 唐云
- * @Last Modified time: 2022-05-26 15:16:58
+ * @Last Modified time: 2022-05-26 15:19:51
  */
 let MYSQL_CONF
 
@@ -10,7 +10,7 @@ MYSQL_CONF = {
   host: 'localhost',
   // host: '192.168.2.29',
   user: 'root',
-  password: '111111',
+  password: '12345678',
   port: '3306',
   database: 'mall',
 }
