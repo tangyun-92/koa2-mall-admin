@@ -530,3 +530,42 @@ response status: 200
 response body: 
 {"stack":"Error: 用户名已存在\n    at Object.throw (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa\\lib\\context.js:97:11)\n    at update (D:\\test\\mall\\koa2-mall-admin\\app\\controllers\\ums-admins.js:59:16)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async verifyParam (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-parameter\\index.js:52:7)\n    at async D:\\test\\mall\\koa2-mall-admin\\app\\index.js:51:5\n    at async logger (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-logger\\index.js:67:7)\n    at async serve (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa-static\\index.js:53:9)\n    at async cors (D:\\test\\mall\\koa2-mall-admin\\node_modules\\koa2-cors\\dist\\index.js:91:9)","expose":true,"statusCode":200,"status":200,"name":"Error","message":"用户名已存在","result":false}
 *************** response log end ***************
+[2021-11-02T14:59:11.147] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 59
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2021-11-01 14:18:00","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:59:45.499] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/update
+request client ip:  ::1
+request body: 
+{"username":"zs","status":1,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","id":2}
+response time: 103
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2021-11-02T14:59:45.517] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 6
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2021-11-01 14:18:00","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+

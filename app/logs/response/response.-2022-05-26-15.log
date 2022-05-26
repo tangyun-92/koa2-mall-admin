@@ -1,0 +1,26 @@
+[2022-05-26T15:07:26.956] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/login
+request client ip:  ::1
+request body: 
+{"username":"admin","password":"4YS8pXDMcZNSqEymv0uxDg=="}
+response time: 102
+response status: 200
+response body: 
+{"data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY1MzU0ODg0NiwiZXhwIjoxNjUzNjM1MjQ2fQ.hgXEDIXOf0bQAzIRBvy2ob-kptYosadAsC68bZvzGDo","username":"admin"},"status":200,"message":"登录成功","result":true}
+*************** response log end ***************
+
+[2022-05-26T15:07:27.081] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 11
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2022-05-26 15:07:26","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+

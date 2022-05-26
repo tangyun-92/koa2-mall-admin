@@ -17,6 +17,7 @@ const { formData } = require('./utils')
 // 解决跨域
 app.use(cors())
 
+
 // 指定静态文件目录中间件
 app.use(koaStatic(path.join(__dirname, 'public')))
 
@@ -35,15 +36,17 @@ app.use(logger())
 // logger
 app.use(async (ctx, next) => {
   const token = ctx.request.header.authorization
-  const result = jwt.verify(token.split(' ')[1], secret, { expiresIn: '1d' })
-  const time = Date.now()
-  UmsAdminLoginLog.create({
-    username: result.username,
-    admin_id: result.id,
-    create_time: formData(time),
-    ip: ctx.request.header.host,
-    address: ctx.request.url
-  })
+  if (token) {
+    const result = jwt.verify(token.split(' ')[1], secret, { expiresIn: '1d' })
+    const time = Date.now()
+    UmsAdminLoginLog.create({
+      username: result.username,
+      admin_id: result.id,
+      create_time: formData(time),
+      ip: ctx.request.header.host,
+      address: ctx.request.url,
+    })
+  }
 
   const start = new Date()
   let intervals
