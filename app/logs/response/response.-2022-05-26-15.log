@@ -24,3 +24,796 @@ response body:
 {"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2022-05-26 15:07:26","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
 *************** response log end ***************
 
+[2022-05-26T15:09:06.207] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 59
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":1,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":1,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":0,"sort":null}],"currentPage":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:09:10.801] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/brands/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 5
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"小米","first_letter":"X","sort":null,"factory_status":0,"show_status":1,"product_count":null,"product_comment_count":null,"logo":"http://localhost:3003/uploads/brands/1634889023338.itc","big_pic":null,"brand_story":""},{"id":1,"name":"华为","first_letter":"H","sort":null,"factory_status":0,"show_status":1,"product_count":null,"product_comment_count":null,"logo":"http://localhost:3003/uploads/brands/1634889012376.webp","big_pic":null,"brand_story":"华为成立于..."}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:09:11.944] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-categorys/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 13
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":7,"parent_id":0,"name":"手机数码","level":1,"product_count":null,"product_unit":"","nav_status":1,"show_status":1,"sort":2,"icon":null,"keywords":"","description":"","children":[{"id":10,"parent_id":7,"name":"摄影摄像","level":2,"product_count":null,"product_unit":"","nav_status":null,"show_status":0,"sort":1,"icon":null,"keywords":"","description":""},{"id":9,"parent_id":7,"name":"手机配件","level":2,"product_count":null,"product_unit":"","nav_status":0,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":8,"parent_id":7,"name":"手机通讯","level":2,"product_count":null,"product_unit":"个","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]},{"id":3,"parent_id":0,"name":"服装","level":1,"product_count":100,"product_unit":"","nav_status":1,"show_status":0,"sort":1,"icon":null,"keywords":"服装","description":"描述","children":[{"id":11,"parent_id":3,"name":"T恤","level":2,"product_count":null,"product_unit":"件","nav_status":0,"show_status":0,"sort":null,"icon":null,"keywords":"","description":""},{"id":5,"parent_id":3,"name":"短裤","level":2,"product_count":null,"product_unit":"条","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":4,"parent_id":3,"name":"外套","level":2,"product_count":null,"product_unit":"件","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]}],"total":8},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:09:22.554] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/brands/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 6
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"小米","first_letter":"X","sort":null,"factory_status":0,"show_status":1,"product_count":null,"product_comment_count":null,"logo":"http://localhost:3003/uploads/brands/1634889023338.itc","big_pic":null,"brand_story":""},{"id":1,"name":"华为","first_letter":"H","sort":null,"factory_status":0,"show_status":1,"product_count":null,"product_comment_count":null,"logo":"http://localhost:3003/uploads/brands/1634889012376.webp","big_pic":null,"brand_story":"华为成立于..."}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:09:24.414] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 7
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":1,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":1,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":0,"sort":null}],"currentPage":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:09:26.190] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-categorys/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 4
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":7,"parent_id":0,"name":"手机数码","level":1,"product_count":null,"product_unit":"","nav_status":1,"show_status":1,"sort":2,"icon":null,"keywords":"","description":"","children":[{"id":10,"parent_id":7,"name":"摄影摄像","level":2,"product_count":null,"product_unit":"","nav_status":null,"show_status":0,"sort":1,"icon":null,"keywords":"","description":""},{"id":9,"parent_id":7,"name":"手机配件","level":2,"product_count":null,"product_unit":"","nav_status":0,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":8,"parent_id":7,"name":"手机通讯","level":2,"product_count":null,"product_unit":"个","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]},{"id":3,"parent_id":0,"name":"服装","level":1,"product_count":100,"product_unit":"","nav_status":1,"show_status":0,"sort":1,"icon":null,"keywords":"服装","description":"描述","children":[{"id":11,"parent_id":3,"name":"T恤","level":2,"product_count":null,"product_unit":"件","nav_status":0,"show_status":0,"sort":null,"icon":null,"keywords":"","description":""},{"id":5,"parent_id":3,"name":"短裤","level":2,"product_count":null,"product_unit":"条","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":4,"parent_id":3,"name":"外套","level":2,"product_count":null,"product_unit":"件","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]}],"total":8},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:09:27.427] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-attribute-categorys/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 21
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"服装-T恤","attribute_count":2,"param_count":5},{"id":1,"name":"手机数码-手机通讯","attribute_count":2,"param_count":4}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:09:29.901] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-attribute-categorys/findMap
+request client ip:  ::1
+request body: 
+{}
+response time: 8
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"服装-T恤"},{"id":1,"name":"手机数码-手机通讯"}],"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:09:30.027] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-attribute/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"attributeCategoryId":2,"type":1}
+response time: 131
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"product_attribute_category_id":2,"name":"颜色","select_type":3,"input_type":2,"input_list":"白色,黑色,红色,粉色,蓝色,黄色","sort":1,"filter_type":2,"search_type":1,"related_status":null,"hand_add_status":2,"type":1},{"id":5,"product_attribute_category_id":2,"name":"尺寸","select_type":3,"input_type":2,"input_list":"M,X,XL,2XL,3XL,4XL","sort":2,"filter_type":1,"search_type":1,"related_status":null,"hand_add_status":1,"type":1}],"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:09:48.501] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-attribute/update
+request client ip:  ::1
+request body: 
+{"name":"尺寸","product_attribute_category_id":2,"select_type":3,"input_type":2,"input_list":"M,X,XL,2XL,3XL,4XL","sort":2,"filter_type":1,"search_type":2,"hand_add_status":1,"id":5,"type":1}
+response time: 101
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:09:48.518] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-attribute/list
+request client ip:  ::1
+request body: 
+{"pageSize":10,"attributeCategoryId":2,"type":1}
+response time: 3
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"product_attribute_category_id":2,"name":"颜色","select_type":3,"input_type":2,"input_list":"白色,黑色,红色,粉色,蓝色,黄色","sort":1,"filter_type":2,"search_type":1,"related_status":null,"hand_add_status":2,"type":1},{"id":5,"product_attribute_category_id":2,"name":"尺寸","select_type":3,"input_type":2,"input_list":"M,X,XL,2XL,3XL,4XL","sort":2,"filter_type":1,"search_type":2,"related_status":null,"hand_add_status":1,"type":1}],"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:09:54.302] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-attribute-categorys/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 3
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"服装-T恤","attribute_count":2,"param_count":5},{"id":1,"name":"手机数码-手机通讯","attribute_count":2,"param_count":4}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:09:56.104] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/brands/listMap
+request client ip:  ::1
+request body: 
+{}
+response time: 7
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"小米"},{"id":1,"name":"华为"}],"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:09:56.212] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-categorys/list
+request client ip:  ::1
+request body: 
+{}
+response time: 114
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":7,"parent_id":0,"name":"手机数码","level":1,"product_count":null,"product_unit":"","nav_status":1,"show_status":1,"sort":2,"icon":null,"keywords":"","description":"","children":[{"id":10,"parent_id":7,"name":"摄影摄像","level":2,"product_count":null,"product_unit":"","nav_status":null,"show_status":0,"sort":1,"icon":null,"keywords":"","description":""},{"id":9,"parent_id":7,"name":"手机配件","level":2,"product_count":null,"product_unit":"","nav_status":0,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":8,"parent_id":7,"name":"手机通讯","level":2,"product_count":null,"product_unit":"个","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]},{"id":3,"parent_id":0,"name":"服装","level":1,"product_count":100,"product_unit":"","nav_status":1,"show_status":0,"sort":1,"icon":null,"keywords":"服装","description":"描述","children":[{"id":11,"parent_id":3,"name":"T恤","level":2,"product_count":null,"product_unit":"件","nav_status":0,"show_status":0,"sort":null,"icon":null,"keywords":"","description":""},{"id":5,"parent_id":3,"name":"短裤","level":2,"product_count":null,"product_unit":"条","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":4,"parent_id":3,"name":"外套","level":2,"product_count":null,"product_unit":"件","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]}],"total":8},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:09:56.231] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/products/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":"","brand_id":"","product_category_id":"","product_sn":"","publish_status":""}
+response time: 143
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":7,"brand_id":2,"product_category_id":11,"freight_template_id":null,"product_attribute_category_id":2,"name":"以纯-T恤","pic":"http://localhost:3003/uploads/products/1634889313626_fasdfas.jpeg","product_sn":"4451223235","delete_status":null,"publish_status":2,"new_status":2,"recommend_status":2,"verify_status":1,"sort":1,"sale":null,"price":"56.00","promotion_price":"40.00","gift_growth":5,"gift_point":5,"use_point_limit":0,"sub_title":"无","description":"无","original_price":"59.00","stock":20000,"low_stock":null,"unit":"条","weight":"20.00","preview_status":0,"service_ids":"1,3","keywords":"","note":"","album_pics":"http://localhost:3003/uploads/products/1634889313626_fasdfas.jpeg","detail_title":"","detail_desc":"","detail_html":null,"detail_mobile_html":null,"promotion_start_time":"2021-10-22 12:00:00","promotion_end_time":"2021-10-23 12:00:00","promotion_per_limit":null,"promotion_type":5,"product_category_name":null,"brand_name":"小米"},{"id":6,"brand_id":2,"product_category_id":8,"freight_template_id":null,"product_attribute_category_id":1,"name":"小米100超级手机","pic":"http://localhost:3003/uploads/products/1634889229926_aaa.jpeg","product_sn":"21056535200","delete_status":null,"publish_status":2,"new_status":2,"recommend_status":2,"verify_status":2,"sort":1,"sale":null,"price":"4288.00","promotion_price":null,"gift_growth":428,"gift_point":428,"use_point_limit":100,"sub_title":"超级手机，就是牛气","description":"我是介绍","original_price":"4300.00","stock":1000,"low_stock":null,"unit":"部","weight":"180.00","preview_status":1,"service_ids":"1,2,3","keywords":"手机,小米,超级","note":"无","album_pics":"http://localhost:3003/uploads/products/1634889229926_aaa.jpeg,http://localhost:3003/uploads/products/1634889233452_bbb.jpeg,http://localhost:3003/uploads/products/1634889236880_ccc.jpeg","detail_title":"无","detail_desc":"无","detail_html":null,"detail_mobile_html":null,"promotion_start_time":"","promotion_end_time":"","promotion_per_limit":null,"promotion_type":4,"product_category_name":null,"brand_name":"小米"},{"id":2,"brand_id":1,"product_category_id":11,"freight_template_id":null,"product_attribute_category_id":2,"name":"美特斯邦威-T恤","pic":"http://localhost:3003/uploads/products/1634889281377_asdf.jpeg","product_sn":"2342342","delete_status":null,"publish_status":1,"new_status":1,"recommend_status":1,"verify_status":null,"sort":3333,"sale":null,"price":"66.00","promotion_price":"49.00","gift_growth":6,"gift_point":6,"use_point_limit":0,"sub_title":"发多少发的防守打法的发","description":"发送到发顺丰三方沙发萨达发士大夫发","original_price":"68.00","stock":33,"low_stock":null,"unit":"33","weight":"33.00","preview_status":1,"service_ids":"2,3","keywords":"发送到","note":"发发发发发","album_pics":"http://localhost:3003/uploads/products/1634889281377_asdf.jpeg","detail_title":"大声道","detail_desc":"的沙发斯蒂芬","detail_html":null,"detail_mobile_html":null,"promotion_start_time":"2021-11-02 12:00:00","promotion_end_time":"2021-11-17 12:00:00","promotion_per_limit":null,"promotion_type":2,"product_category_name":null,"brand_name":"华为"}],"page":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:10:04.495] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/products/verifyRecord
+request client ip:  ::1
+request body: 
+{"id":7}
+response time: 2
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"product_id":7,"create_time":"2021-11-01 14:24:32","verify_man":"admin","status":1,"detail":"tg"},{"id":1,"product_id":7,"create_time":"2021-11-01 14:24:25","verify_man":"admin","status":2,"detail":"111"}]},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:10:08.438] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/products/verifyRecord
+request client ip:  ::1
+request body: 
+{"id":6}
+response time: 2
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":3,"product_id":6,"create_time":"2021-11-01 14:24:40","verify_man":"admin","status":2,"detail":"my"}]},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:10:10.158] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/products/verifyRecord
+request client ip:  ::1
+request body: 
+{"id":2}
+response time: 1
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[]},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:10:32.898] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-categorys/list
+request client ip:  ::1
+request body: 
+{}
+response time: 10
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":7,"parent_id":0,"name":"手机数码","level":1,"product_count":null,"product_unit":"","nav_status":1,"show_status":1,"sort":2,"icon":null,"keywords":"","description":"","children":[{"id":10,"parent_id":7,"name":"摄影摄像","level":2,"product_count":null,"product_unit":"","nav_status":null,"show_status":0,"sort":1,"icon":null,"keywords":"","description":""},{"id":9,"parent_id":7,"name":"手机配件","level":2,"product_count":null,"product_unit":"","nav_status":0,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":8,"parent_id":7,"name":"手机通讯","level":2,"product_count":null,"product_unit":"个","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]},{"id":3,"parent_id":0,"name":"服装","level":1,"product_count":100,"product_unit":"","nav_status":1,"show_status":0,"sort":1,"icon":null,"keywords":"服装","description":"描述","children":[{"id":11,"parent_id":3,"name":"T恤","level":2,"product_count":null,"product_unit":"件","nav_status":0,"show_status":0,"sort":null,"icon":null,"keywords":"","description":""},{"id":5,"parent_id":3,"name":"短裤","level":2,"product_count":null,"product_unit":"条","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":4,"parent_id":3,"name":"外套","level":2,"product_count":null,"product_unit":"件","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]}],"total":8},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:10:32.901] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/brands/listMap
+request client ip:  ::1
+request body: 
+{}
+response time: 12
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"小米"},{"id":1,"name":"华为"}],"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:10:33.088] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/products/detail
+request client ip:  ::1
+request body: 
+{"id":"2"}
+response time: 196
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":{"id":2,"brand_id":1,"product_category_id":11,"freight_template_id":null,"product_attribute_category_id":2,"name":"美特斯邦威-T恤","pic":"http://localhost:3003/uploads/products/1634889281377_asdf.jpeg","product_sn":"2342342","delete_status":null,"publish_status":1,"new_status":1,"recommend_status":1,"verify_status":null,"sort":3333,"sale":null,"price":"66.00","promotion_price":"49.00","gift_growth":6,"gift_point":6,"use_point_limit":0,"sub_title":"发多少发的防守打法的发","description":"发送到发顺丰三方沙发萨达发士大夫发","original_price":"68.00","stock":33,"low_stock":null,"unit":"33","weight":"33.00","preview_status":1,"service_ids":"2,3","keywords":"发送到","note":"发发发发发","album_pics":"http://localhost:3003/uploads/products/1634889281377_asdf.jpeg","detail_title":"大声道","detail_desc":"的沙发斯蒂芬","detail_html":null,"detail_mobile_html":null,"promotion_start_time":"2021-11-02 12:00:00","promotion_end_time":"2021-11-17 12:00:00","promotion_per_limit":null,"promotion_type":2,"product_category_name":null,"brand_name":null,"productAttributeValueList":[{"id":13,"product_id":2,"product_attribute_id":2,"value":"白色,黑色,红色,粉色,蓝色,黄色,橘色"},{"id":14,"product_id":2,"product_attribute_id":13,"value":"00000"},{"id":15,"product_id":2,"product_attribute_id":14,"value":"冬季,秋季"},{"id":16,"product_id":2,"product_attribute_id":15,"value":"中年"},{"id":17,"product_id":2,"product_attribute_id":16,"value":"2021秋"},{"id":18,"product_id":2,"product_attribute_id":17,"value":"长袖"}],"skuTableData":[{"id":99,"product_id":2,"sku_code":"1231","price":"55.00","stock":555,"low_stock":555,"pic":"http://localhost:3003/uploads/products/1634889259689_u=1175465105,2046364133&fm=26&fmt=auto.webp","sale":null,"promotion_price":null,"lock_stock":0,"sp_data":"[{\"key\":\"颜色\",\"value\":\"黑色\"},{\"key\":\"尺寸\",\"value\":\"M\"}]"},{"id":100,"product_id":2,"sku_code":"213","price":"55.00","stock":555,"low_stock":555,"pic":"http://localhost:3003/uploads/products/1634889263391_src=http___images.s","sale":null,"promotion_price":null,"lock_stock":0,"sp_data":"[{\"key\":\"颜色\",\"value\":\"橘色\"},{\"key\":\"尺寸\",\"value\":\"M\"}]"},{"id":101,"product_id":2,"sku_code":"1231","price":"55.00","stock":555,"low_stock":555,"pic":"","sale":null,"promotion_price":null,"lock_stock":0,"sp_data":"[{\"key\":\"颜色\",\"value\":\"白色\"},{\"key\":\"尺寸\",\"value\":\"M\"}]"}],"subjectIds":[6,1,2],"preferenceIds":[3,4],"ladderTableData":[],"fullReduceTableData":[]}},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:10:42.055] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-attribute-categorys/findMap
+request client ip:  ::1
+request body: 
+{}
+response time: 5
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"服装-T恤"},{"id":1,"name":"手机数码-手机通讯"}],"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:10:42.057] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-attribute/list
+request client ip:  ::1
+request body: 
+{"attributeCategoryId":2}
+response time: 4
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"product_attribute_category_id":2,"name":"颜色","select_type":3,"input_type":2,"input_list":"白色,黑色,红色,粉色,蓝色,黄色","sort":1,"filter_type":2,"search_type":1,"related_status":null,"hand_add_status":2,"type":1},{"id":13,"product_attribute_category_id":2,"name":"商品编号","select_type":1,"input_type":1,"input_list":"","sort":1,"filter_type":1,"search_type":null,"related_status":null,"hand_add_status":1,"type":2},{"id":14,"product_attribute_category_id":2,"name":"适用季节","select_type":3,"input_type":2,"input_list":"春季,夏季,秋季,冬季","sort":1,"filter_type":null,"search_type":null,"related_status":null,"hand_add_status":1,"type":2},{"id":15,"product_attribute_category_id":2,"name":"适用人群","select_type":3,"input_type":2,"input_list":"儿童,青年,中年,老年","sort":1,"filter_type":null,"search_type":null,"related_status":null,"hand_add_status":1,"type":2},{"id":16,"product_attribute_category_id":2,"name":"上市时间","select_type":2,"input_type":2,"input_list":"2021春,2121夏,2021秋,2021冬","sort":1,"filter_type":null,"search_type":null,"related_status":null,"hand_add_status":1,"type":2},{"id":17,"product_attribute_category_id":2,"name":"袖长","select_type":2,"input_type":2,"input_list":"短袖,中袖,长袖","sort":1,"filter_type":null,"search_type":null,"related_status":null,"hand_add_status":1,"type":2},{"id":5,"product_attribute_category_id":2,"name":"尺寸","select_type":3,"input_type":2,"input_list":"M,X,XL,2XL,3XL,4XL","sort":2,"filter_type":1,"search_type":2,"related_status":null,"hand_add_status":1,"type":1}],"total":7},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:10:51.348] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/products/upload
+request client ip:  ::1
+request body: 
+{}
+response time: 1
+response status: 200
+response body: 
+{"status":200,"result":true,"message":"上传成功","url":"http://localhost:3003/uploads/products/1653549051347_fasdfas.jpeg"}
+*************** response log end ***************
+
+[2022-05-26T15:10:53.361] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /cms/subjects/listMap
+request client ip:  ::1
+request body: 
+{}
+response time: 21
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":6,"title":"专题3"},{"id":5,"title":"专题2"},{"id":4,"title":"专题1"},{"id":2,"title":"清凉一夏"},{"id":1,"title":"专题标题"}],"total":5},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:10:53.368] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /cms/preferences/listMap
+request client ip:  ::1
+request body: 
+{}
+response time: 27
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":4,"name":"优选主题2"},{"id":3,"name":"优选主题3"},{"id":1,"name":"优选主题1"}],"total":3},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:10:55.156] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/products/update
+request client ip:  ::1
+request body: 
+{"name":"美特斯邦威-T恤","product_category_id":11,"sub_title":"发多少发的防守打法的发","brand_id":1,"description":"发送到发顺丰三方沙发萨达发士大夫发","product_sn":"2342342","price":"66.00","original_price":"68.00","stock":33,"unit":"33","weight":"33.00","sort":3333,"gift_point":6,"gift_growth":6,"use_point_limit":0,"preview_status":1,"publish_status":1,"new_status":1,"recommend_status":1,"service_ids":"2,3","detail_title":"大声道","detail_desc":"的沙发斯蒂芬","keywords":"发送到","note":"发发发发发","pic":"http://localhost:3003/uploads/products/1634889281377_asdf.jpeg","album_pics":"http://localhost:3003/uploads/products/1634889281377_asdf.jpeg,http://localhost:3003/uploads/products/1653549051347_fasdfas.jpeg","promotion_type":2,"promotion_start_time":"2021-11-02 12:00:00","promotion_end_time":"2021-11-17 12:00:00","promotion_price":"49.00","product_attribute_category_id":2,"skuTableData":[{"id":99,"product_id":2,"sku_code":"1231","price":"55.00","stock":555,"low_stock":555,"pic":"http://localhost:3003/uploads/products/1634889259689_u=1175465105,2046364133&fm=26&fmt=auto.webp","sale":null,"promotion_price":null,"lock_stock":0,"sp_data":"[{\"key\":\"颜色\",\"value\":\"黑色\"},{\"key\":\"尺寸\",\"value\":\"M\"}]"},{"id":100,"product_id":2,"sku_code":"213","price":"55.00","stock":555,"low_stock":555,"pic":"http://localhost:3003/uploads/products/1634889263391_src=http___images.s","sale":null,"promotion_price":null,"lock_stock":0,"sp_data":"[{\"key\":\"颜色\",\"value\":\"橘色\"},{\"key\":\"尺寸\",\"value\":\"M\"}]"},{"id":101,"product_id":2,"sku_code":"1231","price":"55.00","stock":555,"low_stock":555,"pic":"","sale":null,"promotion_price":null,"lock_stock":0,"sp_data":"[{\"key\":\"颜色\",\"value\":\"白色\"},{\"key\":\"尺寸\",\"value\":\"M\"}]"}],"productAttributeValueList":[{"product_attribute_id":2,"value":"白色,黑色,红色,粉色,蓝色,黄色,橘色"},{"product_attribute_id":13,"id":14,"value":"00000"},{"product_attribute_id":14,"id":15,"value":"冬季,秋季"},{"product_attribute_id":15,"id":16,"value":"中年"},{"product_attribute_id":16,"id":17,"value":"2021秋"},{"product_attribute_id":17,"id":18,"value":"长袖"}],"subjectIds":[6,1,2],"preferenceIds":[3,4],"ladderTableData":[{"count":0,"discount":0}],"fullReduceTableData":[{"full_price":0,"reduce_price":0}],"id":2,"freight_template_id":null,"delete_status":null,"verify_status":null,"sale":null,"low_stock":null,"detail_html":null,"detail_mobile_html":null,"promotion_per_limit":null,"product_category_name":null,"brand_name":null}
+response time: 103
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:10:55.554] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/products/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":"","brand_id":"","product_category_id":"","product_sn":"","publish_status":""}
+response time: 334
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":7,"brand_id":2,"product_category_id":11,"freight_template_id":null,"product_attribute_category_id":2,"name":"以纯-T恤","pic":"http://localhost:3003/uploads/products/1634889313626_fasdfas.jpeg","product_sn":"4451223235","delete_status":null,"publish_status":2,"new_status":2,"recommend_status":2,"verify_status":1,"sort":1,"sale":null,"price":"56.00","promotion_price":"40.00","gift_growth":5,"gift_point":5,"use_point_limit":0,"sub_title":"无","description":"无","original_price":"59.00","stock":20000,"low_stock":null,"unit":"条","weight":"20.00","preview_status":0,"service_ids":"1,3","keywords":"","note":"","album_pics":"http://localhost:3003/uploads/products/1634889313626_fasdfas.jpeg","detail_title":"","detail_desc":"","detail_html":null,"detail_mobile_html":null,"promotion_start_time":"2021-10-22 12:00:00","promotion_end_time":"2021-10-23 12:00:00","promotion_per_limit":null,"promotion_type":5,"product_category_name":null,"brand_name":"小米"},{"id":6,"brand_id":2,"product_category_id":8,"freight_template_id":null,"product_attribute_category_id":1,"name":"小米100超级手机","pic":"http://localhost:3003/uploads/products/1634889229926_aaa.jpeg","product_sn":"21056535200","delete_status":null,"publish_status":2,"new_status":2,"recommend_status":2,"verify_status":2,"sort":1,"sale":null,"price":"4288.00","promotion_price":null,"gift_growth":428,"gift_point":428,"use_point_limit":100,"sub_title":"超级手机，就是牛气","description":"我是介绍","original_price":"4300.00","stock":1000,"low_stock":null,"unit":"部","weight":"180.00","preview_status":1,"service_ids":"1,2,3","keywords":"手机,小米,超级","note":"无","album_pics":"http://localhost:3003/uploads/products/1634889229926_aaa.jpeg,http://localhost:3003/uploads/products/1634889233452_bbb.jpeg,http://localhost:3003/uploads/products/1634889236880_ccc.jpeg","detail_title":"无","detail_desc":"无","detail_html":null,"detail_mobile_html":null,"promotion_start_time":"","promotion_end_time":"","promotion_per_limit":null,"promotion_type":4,"product_category_name":null,"brand_name":"小米"},{"id":2,"brand_id":1,"product_category_id":11,"freight_template_id":null,"product_attribute_category_id":2,"name":"美特斯邦威-T恤","pic":"http://localhost:3003/uploads/products/1634889281377_asdf.jpeg","product_sn":"2342342","delete_status":null,"publish_status":1,"new_status":1,"recommend_status":1,"verify_status":null,"sort":3333,"sale":null,"price":"66.00","promotion_price":"49.00","gift_growth":6,"gift_point":6,"use_point_limit":0,"sub_title":"发多少发的防守打法的发","description":"发送到发顺丰三方沙发萨达发士大夫发","original_price":"68.00","stock":33,"low_stock":null,"unit":"33","weight":"33.00","preview_status":1,"service_ids":"2,3","keywords":"发送到","note":"发发发发发","album_pics":"http://localhost:3003/uploads/products/1634889281377_asdf.jpeg,http://localhost:3003/uploads/products/1653549051347_fasdfas.jpeg","detail_title":"大声道","detail_desc":"的沙发斯蒂芬","detail_html":null,"detail_mobile_html":null,"promotion_start_time":"2021-11-02 12:00:00","promotion_end_time":"2021-11-17 12:00:00","promotion_per_limit":null,"promotion_type":2,"product_category_name":null,"brand_name":"华为"}],"page":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:10:55.592] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/brands/listMap
+request client ip:  ::1
+request body: 
+{}
+response time: 367
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"小米"},{"id":1,"name":"华为"}],"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:10:55.668] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-categorys/list
+request client ip:  ::1
+request body: 
+{}
+response time: 442
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":7,"parent_id":0,"name":"手机数码","level":1,"product_count":null,"product_unit":"","nav_status":1,"show_status":1,"sort":2,"icon":null,"keywords":"","description":"","children":[{"id":10,"parent_id":7,"name":"摄影摄像","level":2,"product_count":null,"product_unit":"","nav_status":null,"show_status":0,"sort":1,"icon":null,"keywords":"","description":""},{"id":9,"parent_id":7,"name":"手机配件","level":2,"product_count":null,"product_unit":"","nav_status":0,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":8,"parent_id":7,"name":"手机通讯","level":2,"product_count":null,"product_unit":"个","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]},{"id":3,"parent_id":0,"name":"服装","level":1,"product_count":100,"product_unit":"","nav_status":1,"show_status":0,"sort":1,"icon":null,"keywords":"服装","description":"描述","children":[{"id":11,"parent_id":3,"name":"T恤","level":2,"product_count":null,"product_unit":"件","nav_status":0,"show_status":0,"sort":null,"icon":null,"keywords":"","description":""},{"id":5,"parent_id":3,"name":"短裤","level":2,"product_count":null,"product_unit":"条","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":4,"parent_id":3,"name":"外套","level":2,"product_count":null,"product_unit":"件","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]}],"total":8},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:11:03.545] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /cms/subjects/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"title":"","recommend_status":"","show_status":"","category_id":""}
+response time: 9
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":6,"category_id":1,"title":"专题3","pic":"","product_count":null,"recommend_status":1,"create_time":"2021-10-25 16:15:12","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"夏季服装特卖","c":{"id":1,"name":"夏季服装特卖","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":5,"category_id":4,"title":"专题2","pic":"","product_count":null,"recommend_status":1,"create_time":"2021-10-25 16:15:04","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"数码设备大促销","c":{"id":4,"name":"数码设备大促销","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":4,"category_id":1,"title":"专题1","pic":"","product_count":null,"recommend_status":1,"create_time":"2021-10-25 16:14:16","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"","show_status":0,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"夏季服装特卖","c":{"id":1,"name":"夏季服装特卖","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":2,"category_id":1,"title":"清凉一夏","pic":"http://localhost:3003/uploads/subjects/1635146930813.jpeg","product_count":null,"recommend_status":2,"create_time":"2021-10-25 14:20:43","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"夏天到了，服装全场8.8折大促销","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"夏季服装特卖","c":{"id":1,"name":"夏季服装特卖","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":1,"category_id":2,"title":"专题标题","pic":"","product_count":null,"recommend_status":1,"create_time":"2021-10-25 11:10:42","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"描述...","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"618大卖场","c":{"id":2,"name":"618大卖场","icon":null,"subject_count":null,"show_status":1,"sort":1}}],"currentPage":1,"pageSize":10,"total":5},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:11:03.546] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /cms/subjects/findSubjectCategory
+request client ip:  ::1
+request body: 
+{}
+response time: 5
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":4,"name":"数码设备大促销"},{"id":3,"name":"家电大促销"},{"id":2,"name":"618大卖场"},{"id":1,"name":"夏季服装特卖"}],"total":4},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:11:06.081] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /cms/preferences/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":"","show_status":""}
+response time: 3
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":4,"name":"优选主题2","sub_title":"无","pic":"http://localhost:3003/uploads/preferences/1635146959917.jpeg","sort":4,"show_status":1},{"id":3,"name":"优选主题3","sub_title":"无","pic":"","sort":3,"show_status":1},{"id":1,"name":"优选主题1","sub_title":"无","pic":"","sort":1,"show_status":1}],"currentPage":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:11:11.317] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /cms/subjects/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"title":"","recommend_status":"","show_status":"","category_id":""}
+response time: 6
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":6,"category_id":1,"title":"专题3","pic":"","product_count":null,"recommend_status":1,"create_time":"2021-10-25 16:15:12","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"夏季服装特卖","c":{"id":1,"name":"夏季服装特卖","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":5,"category_id":4,"title":"专题2","pic":"","product_count":null,"recommend_status":1,"create_time":"2021-10-25 16:15:04","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"数码设备大促销","c":{"id":4,"name":"数码设备大促销","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":4,"category_id":1,"title":"专题1","pic":"","product_count":null,"recommend_status":1,"create_time":"2021-10-25 16:14:16","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"","show_status":0,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"夏季服装特卖","c":{"id":1,"name":"夏季服装特卖","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":2,"category_id":1,"title":"清凉一夏","pic":"http://localhost:3003/uploads/subjects/1635146930813.jpeg","product_count":null,"recommend_status":2,"create_time":"2021-10-25 14:20:43","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"夏天到了，服装全场8.8折大促销","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"夏季服装特卖","c":{"id":1,"name":"夏季服装特卖","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":1,"category_id":2,"title":"专题标题","pic":"","product_count":null,"recommend_status":1,"create_time":"2021-10-25 11:10:42","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"描述...","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"618大卖场","c":{"id":2,"name":"618大卖场","icon":null,"subject_count":null,"show_status":1,"sort":1}}],"currentPage":1,"pageSize":10,"total":5},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:11:11.318] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /cms/subjects/findSubjectCategory
+request client ip:  ::1
+request body: 
+{}
+response time: 4
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":4,"name":"数码设备大促销"},{"id":3,"name":"家电大促销"},{"id":2,"name":"618大卖场"},{"id":1,"name":"夏季服装特卖"}],"total":4},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:11:37.807] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /cms/subjects/upload
+request client ip:  ::1
+request body: 
+{}
+response time: 1
+response status: 200
+response body: 
+{"status":200,"result":true,"message":"上传成功","url":"http://localhost:3003/uploads/subjects/1653549097807.jpeg"}
+*************** response log end ***************
+
+[2022-05-26T15:11:38.989] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /cms/subjects/update
+request client ip:  ::1
+request body: 
+{"title":"专题3","category_id":1,"recommend_status":1,"show_status":1,"pic":"http://localhost:3003/uploads/subjects/1653549097807.jpeg","description":"","id":6}
+response time: 77
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:11:39.021] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /cms/subjects/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"title":"","recommend_status":"","show_status":"","category_id":""}
+response time: 4
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":6,"category_id":1,"title":"专题3","pic":"http://localhost:3003/uploads/subjects/1653549097807.jpeg","product_count":null,"recommend_status":1,"create_time":"2021-10-25 16:15:12","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"夏季服装特卖","c":{"id":1,"name":"夏季服装特卖","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":5,"category_id":4,"title":"专题2","pic":"","product_count":null,"recommend_status":1,"create_time":"2021-10-25 16:15:04","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"数码设备大促销","c":{"id":4,"name":"数码设备大促销","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":4,"category_id":1,"title":"专题1","pic":"","product_count":null,"recommend_status":1,"create_time":"2021-10-25 16:14:16","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"","show_status":0,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"夏季服装特卖","c":{"id":1,"name":"夏季服装特卖","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":2,"category_id":1,"title":"清凉一夏","pic":"http://localhost:3003/uploads/subjects/1635146930813.jpeg","product_count":null,"recommend_status":2,"create_time":"2021-10-25 14:20:43","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"夏天到了，服装全场8.8折大促销","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"夏季服装特卖","c":{"id":1,"name":"夏季服装特卖","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":1,"category_id":2,"title":"专题标题","pic":"","product_count":null,"recommend_status":1,"create_time":"2021-10-25 11:10:42","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"描述...","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"618大卖场","c":{"id":2,"name":"618大卖场","icon":null,"subject_count":null,"show_status":1,"sort":1}}],"currentPage":1,"pageSize":10,"total":5},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:11:41.642] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /cms/subjects/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"title":"","recommend_status":"","show_status":"","category_id":""}
+response time: 3
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":6,"category_id":1,"title":"专题3","pic":"http://localhost:3003/uploads/subjects/1653549097807.jpeg","product_count":null,"recommend_status":1,"create_time":"2021-10-25 16:15:12","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"夏季服装特卖","c":{"id":1,"name":"夏季服装特卖","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":5,"category_id":4,"title":"专题2","pic":"","product_count":null,"recommend_status":1,"create_time":"2021-10-25 16:15:04","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"数码设备大促销","c":{"id":4,"name":"数码设备大促销","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":4,"category_id":1,"title":"专题1","pic":"","product_count":null,"recommend_status":1,"create_time":"2021-10-25 16:14:16","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"","show_status":0,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"夏季服装特卖","c":{"id":1,"name":"夏季服装特卖","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":2,"category_id":1,"title":"清凉一夏","pic":"http://localhost:3003/uploads/subjects/1635146930813.jpeg","product_count":null,"recommend_status":2,"create_time":"2021-10-25 14:20:43","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"夏天到了，服装全场8.8折大促销","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"夏季服装特卖","c":{"id":1,"name":"夏季服装特卖","icon":null,"subject_count":null,"show_status":1,"sort":1}},{"id":1,"category_id":2,"title":"专题标题","pic":"","product_count":null,"recommend_status":1,"create_time":"2021-10-25 11:10:42","collect_count":null,"read_count":null,"comment_count":null,"album_pics":null,"description":"描述...","show_status":1,"content":null,"forward_count":null,"category_name":null,"subject_category_name":"618大卖场","c":{"id":2,"name":"618大卖场","icon":null,"subject_count":null,"show_status":1,"sort":1}}],"currentPage":1,"pageSize":10,"total":5},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:11:41.646] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /cms/subjects/findSubjectCategory
+request client ip:  ::1
+request body: 
+{}
+response time: 2
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":4,"name":"数码设备大促销"},{"id":3,"name":"家电大促销"},{"id":2,"name":"618大卖场"},{"id":1,"name":"夏季服装特卖"}],"total":4},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:11:46.094] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 3
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2022-05-26 15:07:26","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:11:46.997] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 3
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":1,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":1,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":0,"sort":null}],"currentPage":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:11:58.769] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/update
+request client ip:  ::1
+request body: 
+{"name":"订单管理员","description":"只有订单的权限","status":1,"id":3}
+response time: 82
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:11:58.781] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 3
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":1,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":1,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":1,"sort":null}],"currentPage":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:12:04.089] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/changeStatus
+request client ip:  ::1
+request body: 
+{"id":[1,2,3],"status":0,"loading":true}
+response time: 70
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:12:04.097] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 2
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":0,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":0,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":0,"sort":null}],"currentPage":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:12:07.178] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/changeStatus
+request client ip:  ::1
+request body: 
+{"id":[1,2,3],"status":1,"loading":true}
+response time: 89
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":null,"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:12:07.185] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 2
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":1,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":1,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":1,"sort":null}],"currentPage":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:12:13.194] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/brands/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 2
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"小米","first_letter":"X","sort":null,"factory_status":0,"show_status":1,"product_count":null,"product_comment_count":null,"logo":"http://localhost:3003/uploads/brands/1634889023338.itc","big_pic":null,"brand_story":""},{"id":1,"name":"华为","first_letter":"H","sort":null,"factory_status":0,"show_status":1,"product_count":null,"product_comment_count":null,"logo":"http://localhost:3003/uploads/brands/1634889012376.webp","big_pic":null,"brand_story":"华为成立于..."}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:12:25.786] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-categorys/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 5
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":7,"parent_id":0,"name":"手机数码","level":1,"product_count":null,"product_unit":"","nav_status":1,"show_status":1,"sort":2,"icon":null,"keywords":"","description":"","children":[{"id":10,"parent_id":7,"name":"摄影摄像","level":2,"product_count":null,"product_unit":"","nav_status":null,"show_status":0,"sort":1,"icon":null,"keywords":"","description":""},{"id":9,"parent_id":7,"name":"手机配件","level":2,"product_count":null,"product_unit":"","nav_status":0,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":8,"parent_id":7,"name":"手机通讯","level":2,"product_count":null,"product_unit":"个","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]},{"id":3,"parent_id":0,"name":"服装","level":1,"product_count":100,"product_unit":"","nav_status":1,"show_status":0,"sort":1,"icon":null,"keywords":"服装","description":"描述","children":[{"id":11,"parent_id":3,"name":"T恤","level":2,"product_count":null,"product_unit":"件","nav_status":0,"show_status":0,"sort":null,"icon":null,"keywords":"","description":""},{"id":5,"parent_id":3,"name":"短裤","level":2,"product_count":null,"product_unit":"条","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":4,"parent_id":3,"name":"外套","level":2,"product_count":null,"product_unit":"件","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]}],"total":8},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:12:33.940] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/brands/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 3
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"小米","first_letter":"X","sort":null,"factory_status":0,"show_status":1,"product_count":null,"product_comment_count":null,"logo":"http://localhost:3003/uploads/brands/1634889023338.itc","big_pic":null,"brand_story":""},{"id":1,"name":"华为","first_letter":"H","sort":null,"factory_status":0,"show_status":1,"product_count":null,"product_comment_count":null,"logo":"http://localhost:3003/uploads/brands/1634889012376.webp","big_pic":null,"brand_story":"华为成立于..."}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:12:34.705] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/admins/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"username":"","status":""}
+response time: 2
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"username":"zs","icon":null,"email":"wszs@163.com","nick_name":"那是一个夏天","note":"备注...","create_time":"2021-10-08 11:15:44","login_time":"2021-11-02 10:44:38","status":1},{"id":1,"username":"admin","icon":null,"email":"","nick_name":"我是","note":null,"create_time":"2021-10-08 11:11:11","login_time":"2022-05-26 15:07:26","status":1}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:13:03.739] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /ums/roles/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 4
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":1,"name":"超级管理员","description":"拥有所有的权限","admin_count":0,"create_time":"2021-10-08 14:39:37","status":1,"sort":null},{"id":2,"name":"商品管理员","description":"只有商品的权限","admin_count":0,"create_time":"2021-10-08 14:50:36","status":1,"sort":null},{"id":3,"name":"订单管理员","description":"只有订单的权限","admin_count":0,"create_time":"2021-10-08 14:50:50","status":1,"sort":null}],"currentPage":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:13:06.712] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-categorys/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 4
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":7,"parent_id":0,"name":"手机数码","level":1,"product_count":null,"product_unit":"","nav_status":1,"show_status":1,"sort":2,"icon":null,"keywords":"","description":"","children":[{"id":10,"parent_id":7,"name":"摄影摄像","level":2,"product_count":null,"product_unit":"","nav_status":null,"show_status":0,"sort":1,"icon":null,"keywords":"","description":""},{"id":9,"parent_id":7,"name":"手机配件","level":2,"product_count":null,"product_unit":"","nav_status":0,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":8,"parent_id":7,"name":"手机通讯","level":2,"product_count":null,"product_unit":"个","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]},{"id":3,"parent_id":0,"name":"服装","level":1,"product_count":100,"product_unit":"","nav_status":1,"show_status":0,"sort":1,"icon":null,"keywords":"服装","description":"描述","children":[{"id":11,"parent_id":3,"name":"T恤","level":2,"product_count":null,"product_unit":"件","nav_status":0,"show_status":0,"sort":null,"icon":null,"keywords":"","description":""},{"id":5,"parent_id":3,"name":"短裤","level":2,"product_count":null,"product_unit":"条","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":4,"parent_id":3,"name":"外套","level":2,"product_count":null,"product_unit":"件","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]}],"total":8},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:13:07.190] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/brands/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 2
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"小米","first_letter":"X","sort":null,"factory_status":0,"show_status":1,"product_count":null,"product_comment_count":null,"logo":"http://localhost:3003/uploads/brands/1634889023338.itc","big_pic":null,"brand_story":""},{"id":1,"name":"华为","first_letter":"H","sort":null,"factory_status":0,"show_status":1,"product_count":null,"product_comment_count":null,"logo":"http://localhost:3003/uploads/brands/1634889012376.webp","big_pic":null,"brand_story":"华为成立于..."}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:13:07.617] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-attribute-categorys/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":""}
+response time: 3
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"服装-T恤","attribute_count":2,"param_count":5},{"id":1,"name":"手机数码-手机通讯","attribute_count":2,"param_count":4}],"currentPage":1,"pageSize":10,"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:13:07.959] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-categorys/list
+request client ip:  ::1
+request body: 
+{}
+response time: 8
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":7,"parent_id":0,"name":"手机数码","level":1,"product_count":null,"product_unit":"","nav_status":1,"show_status":1,"sort":2,"icon":null,"keywords":"","description":"","children":[{"id":10,"parent_id":7,"name":"摄影摄像","level":2,"product_count":null,"product_unit":"","nav_status":null,"show_status":0,"sort":1,"icon":null,"keywords":"","description":""},{"id":9,"parent_id":7,"name":"手机配件","level":2,"product_count":null,"product_unit":"","nav_status":0,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":8,"parent_id":7,"name":"手机通讯","level":2,"product_count":null,"product_unit":"个","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]},{"id":3,"parent_id":0,"name":"服装","level":1,"product_count":100,"product_unit":"","nav_status":1,"show_status":0,"sort":1,"icon":null,"keywords":"服装","description":"描述","children":[{"id":11,"parent_id":3,"name":"T恤","level":2,"product_count":null,"product_unit":"件","nav_status":0,"show_status":0,"sort":null,"icon":null,"keywords":"","description":""},{"id":5,"parent_id":3,"name":"短裤","level":2,"product_count":null,"product_unit":"条","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":4,"parent_id":3,"name":"外套","level":2,"product_count":null,"product_unit":"件","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]}],"total":8},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:13:07.963] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/products/list
+request client ip:  ::1
+request body: 
+{"currentPage":1,"pageSize":10,"name":"","brand_id":"","product_category_id":"","product_sn":"","publish_status":""}
+response time: 8
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":7,"brand_id":2,"product_category_id":11,"freight_template_id":null,"product_attribute_category_id":2,"name":"以纯-T恤","pic":"http://localhost:3003/uploads/products/1634889313626_fasdfas.jpeg","product_sn":"4451223235","delete_status":null,"publish_status":2,"new_status":2,"recommend_status":2,"verify_status":1,"sort":1,"sale":null,"price":"56.00","promotion_price":"40.00","gift_growth":5,"gift_point":5,"use_point_limit":0,"sub_title":"无","description":"无","original_price":"59.00","stock":20000,"low_stock":null,"unit":"条","weight":"20.00","preview_status":0,"service_ids":"1,3","keywords":"","note":"","album_pics":"http://localhost:3003/uploads/products/1634889313626_fasdfas.jpeg","detail_title":"","detail_desc":"","detail_html":null,"detail_mobile_html":null,"promotion_start_time":"2021-10-22 12:00:00","promotion_end_time":"2021-10-23 12:00:00","promotion_per_limit":null,"promotion_type":5,"product_category_name":null,"brand_name":"小米"},{"id":6,"brand_id":2,"product_category_id":8,"freight_template_id":null,"product_attribute_category_id":1,"name":"小米100超级手机","pic":"http://localhost:3003/uploads/products/1634889229926_aaa.jpeg","product_sn":"21056535200","delete_status":null,"publish_status":2,"new_status":2,"recommend_status":2,"verify_status":2,"sort":1,"sale":null,"price":"4288.00","promotion_price":null,"gift_growth":428,"gift_point":428,"use_point_limit":100,"sub_title":"超级手机，就是牛气","description":"我是介绍","original_price":"4300.00","stock":1000,"low_stock":null,"unit":"部","weight":"180.00","preview_status":1,"service_ids":"1,2,3","keywords":"手机,小米,超级","note":"无","album_pics":"http://localhost:3003/uploads/products/1634889229926_aaa.jpeg,http://localhost:3003/uploads/products/1634889233452_bbb.jpeg,http://localhost:3003/uploads/products/1634889236880_ccc.jpeg","detail_title":"无","detail_desc":"无","detail_html":null,"detail_mobile_html":null,"promotion_start_time":"","promotion_end_time":"","promotion_per_limit":null,"promotion_type":4,"product_category_name":null,"brand_name":"小米"},{"id":2,"brand_id":1,"product_category_id":11,"freight_template_id":null,"product_attribute_category_id":2,"name":"美特斯邦威-T恤","pic":"http://localhost:3003/uploads/products/1634889281377_asdf.jpeg","product_sn":"2342342","delete_status":null,"publish_status":1,"new_status":1,"recommend_status":1,"verify_status":null,"sort":3333,"sale":null,"price":"66.00","promotion_price":"49.00","gift_growth":6,"gift_point":6,"use_point_limit":0,"sub_title":"发多少发的防守打法的发","description":"发送到发顺丰三方沙发萨达发士大夫发","original_price":"68.00","stock":33,"low_stock":null,"unit":"33","weight":"33.00","preview_status":1,"service_ids":"2,3","keywords":"发送到","note":"发发发发发","album_pics":"http://localhost:3003/uploads/products/1634889281377_asdf.jpeg,http://localhost:3003/uploads/products/1653549051347_fasdfas.jpeg","detail_title":"大声道","detail_desc":"的沙发斯蒂芬","detail_html":null,"detail_mobile_html":null,"promotion_start_time":"2021-11-02 12:00:00","promotion_end_time":"2021-11-17 12:00:00","promotion_per_limit":null,"promotion_type":2,"product_category_name":null,"brand_name":"华为"}],"page":1,"pageSize":10,"total":3},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:13:07.966] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/brands/listMap
+request client ip:  ::1
+request body: 
+{}
+response time: 9
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"小米"},{"id":1,"name":"华为"}],"total":2},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:13:08.275] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/product-categorys/list
+request client ip:  ::1
+request body: 
+{}
+response time: 6
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":7,"parent_id":0,"name":"手机数码","level":1,"product_count":null,"product_unit":"","nav_status":1,"show_status":1,"sort":2,"icon":null,"keywords":"","description":"","children":[{"id":10,"parent_id":7,"name":"摄影摄像","level":2,"product_count":null,"product_unit":"","nav_status":null,"show_status":0,"sort":1,"icon":null,"keywords":"","description":""},{"id":9,"parent_id":7,"name":"手机配件","level":2,"product_count":null,"product_unit":"","nav_status":0,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":8,"parent_id":7,"name":"手机通讯","level":2,"product_count":null,"product_unit":"个","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]},{"id":3,"parent_id":0,"name":"服装","level":1,"product_count":100,"product_unit":"","nav_status":1,"show_status":0,"sort":1,"icon":null,"keywords":"服装","description":"描述","children":[{"id":11,"parent_id":3,"name":"T恤","level":2,"product_count":null,"product_unit":"件","nav_status":0,"show_status":0,"sort":null,"icon":null,"keywords":"","description":""},{"id":5,"parent_id":3,"name":"短裤","level":2,"product_count":null,"product_unit":"条","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""},{"id":4,"parent_id":3,"name":"外套","level":2,"product_count":null,"product_unit":"件","nav_status":null,"show_status":null,"sort":null,"icon":null,"keywords":"","description":""}]}],"total":8},"result":true}
+*************** response log end ***************
+
+[2022-05-26T15:13:08.276] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /pms/brands/listMap
+request client ip:  ::1
+request body: 
+{}
+response time: 5
+response status: 200
+response body: 
+{"status":200,"message":"操作成功","data":{"records":[{"id":2,"name":"小米"},{"id":1,"name":"华为"}],"total":2},"result":true}
+*************** response log end ***************
+
